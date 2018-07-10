@@ -120,6 +120,7 @@ html, body {
       opacity: 0;
       width: 100%;
       top: 0;
+      left: 0;
       transition: opacity 1s;
       z-index: -1; }
       html .heads img:nth-of-type(2), body .heads img:nth-of-type(2) {
