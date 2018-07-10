@@ -119,12 +119,12 @@ html, body {
       backface-visibility: hidden;
       opacity: 0;
       width: 100%;
-      top: 0;
-      left: 0;
       transition: opacity 1s;
       z-index: -1; }
       html .heads img:nth-of-type(2), body .heads img:nth-of-type(2) {
-        position: absolute; }
+        position: absolute;
+        top: 0;
+        left: 0; }
     html .heads .active, body .heads .active {
       opacity: 1;
       z-index: 1; }
@@ -348,7 +348,8 @@ footer {
       font-size: 30px; }
       @media screen and (max-width: 768px) {
         .popup .popup_form_wrap p {
-          padding-top: 10px; } }
+          padding-top: 40px;
+          font-size: 20px; } }
     .popup .popup_form_wrap form {
       font-size: 15px;
       outline: none; }
@@ -378,14 +379,7 @@ footer {
       right: 15px;
       width: 25px;
       height: 25px;
-      cursor: pointer; }
-      @media screen and (max-width: 768px) {
-        .popup .popup_form_wrap .popup_close {
-          width: 60px;
-          height: 60px;
-          bottom: 15px;
-          right: 15px;
-          top: auto; } }
+      cursor: pointe; }
       .popup .popup_form_wrap .popup_close:before {
         content: "";
         background-color: #10c9c3;
@@ -395,12 +389,6 @@ footer {
         top: 11px;
         left: -3px;
         transform: rotate(-45deg); }
-        @media screen and (max-width: 768px) {
-          .popup .popup_form_wrap .popup_close:before {
-            top: 25px;
-            left: 5px;
-            width: 50px;
-            height: 2px; } }
       .popup .popup_form_wrap .popup_close:after {
         content: "";
         background-color: #10c9c3;
@@ -410,12 +398,6 @@ footer {
         top: 11px;
         left: -3px;
         transform: rotate(45deg); }
-        @media screen and (max-width: 768px) {
-          .popup .popup_form_wrap .popup_close:after {
-            top: 25px;
-            left: 5px;
-            width: 50px;
-            height: 2px; } }
 
 .slick-prev,
 .slick-next {
