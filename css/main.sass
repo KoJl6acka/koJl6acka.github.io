@@ -1,0 +1,461 @@
+html, body
+  font-family: 'Montserrat', medium, sans-serif
+  height: 100%
+  background-color: #f5f5f5
+  p, h1, h2, h3, h4, h5, h6
+    cursor: default
+
+  .w-100
+    width: 100%
+  .p0
+    padding: 0
+  .pt30
+    padding-top: 30px
+  .pb30
+    padding-bottom: 30px
+
+  .light
+    background-color: #f8f8f8
+  .aqua
+    background-color: #10c9c3
+
+
+  header
+    background-color: #e9e9e9
+    background-image: url(../img/Bald_top.png)
+    background-repeat: no-repeat
+    background-position: 12% bottom
+    background-size: 50%
+    text-align: center
+    @media screen and (max-width: 990px)
+      background: none
+      background-color: #e9e9e9
+
+
+    nav
+      text-align: center
+    .top_mnu
+      ul
+        float: right
+        vertical-align: middle
+        text-align: center
+        @media screen and (max-width: 1200px)
+          margin-left: 0
+        @media screen and (max-width: 767px)
+          margin: 0
+          float: none
+      li
+        display: inline-block
+        vertical-align: middle
+        @media screen and (max-width: 767px)
+          display: block
+        a
+          text-decoration: none
+          text-transform: uppercase
+          margin-left: 30px
+          color: #191919
+          font-size: 12px
+          &:hover
+            color: #10c9c3
+          @media screen and (max-width: 990px)
+            margin-left: 0
+    h1
+      font-size: 46px
+      text-transform: uppercase
+      padding: 1% 0
+    h6
+      font-size: 36px
+      text-transform: uppercase
+      margin-top: 21%
+    .popup_open_button
+      margin: 12% 0 21% 0
+      text-align: center
+      border: 0
+      text-transform: uppercase
+      font-size: 14px
+      color: #fff
+      background-color: #10c9c3
+      text-decoration: none
+      padding: 21px 42px
+
+
+
+
+  .about_txt
+    text-align: center
+    h3
+      font-size: 36px
+      color: #373737
+      margin: 30px
+    p
+      font-size: 22px
+      color: #787878
+      margin-bottom: 30px
+      font-family: 'Nunito Sans', regular, sans-serif
+    img
+      width: 16%
+      margin: 0 auto
+
+
+  .number_item_wrap
+    color: #fff
+    margin: 0 auto
+    text-align: center
+    .number_img
+      display: inline-block
+      background-image: url(../img/iconset_numbers.png)
+      height: 41px
+      width: 41px
+    .number_img_1
+      background-position: 0 0
+    .number_img_2
+      background-position: -85px 0
+    .number_img_3
+      background-position: -176px 0
+    .number_img_4
+      background-position: -264px 0
+    p
+      font-size: 16px
+
+
+  .heads
+    background-color: #f5f5f5
+    .heads_item
+      cursor: pointer
+      position: relative
+      transition: 0.6s
+      transform-style: preserve-3d
+    img
+      backface-visibility: hidden
+      opacity: 0
+      width: 100%
+      top: 0
+      transition: opacity 1s
+      z-index: -1
+      &:nth-of-type(2)
+        position: absolute
+    .active
+      opacity: 1
+      z-index: 1
+    .heads_btn
+      text-align: center
+      min-height: 100px
+      background-color: #f5f5f5
+      button
+        width: 100%
+        height: 100px
+        border: none
+        text-transform: uppercase
+  #hide
+    display: none
+
+
+  .process
+    background-color: #E9E9E9
+    text-align: center
+    .process_description
+      padding: 6% 0
+      @media screen and (max-width: 1010px)
+        padding: 2% 0
+      div
+        margin: auto
+    h3
+      font-size: 28px
+      color: #373737
+      margin-bottom: 40px
+    p
+      font-size: 16px
+      color: #787878
+      margin-bottom: 40px
+      font-family: 'Nunito Sans', regular, sans-serif
+    .process_videoContainer
+      position: relative
+      padding-bottom: 56.25%
+      height: 0
+      overflow: hidden
+      margin: 0 auto
+      iframe
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        width: 100%
+        height: 100%
+        position: absolute
+
+
+  .services
+    background-color: #f9f9f9
+    h1
+      text-transform: uppercase
+      text-align: center
+      margin-top: 30px
+      margin-bottom: 18px
+      font-size: 12px
+      color: #191919
+    p
+      text-align: center
+      font-size: 16px
+      font-family: 'Nunito Sans', regular, sans-serif
+      color: #787878
+    .services_item
+      background-image: url(../img/servicse_iconset.png)
+      width: 44px
+      height: 43px
+      margin: auto
+    .s_it_1
+      background-position: 0 0
+    .s_it_2
+      background-position: -92px 0
+    .s_it_3
+      background-position: -207px 0
+    .s_it_4
+      background-position: -328px 0
+    .s_it_5
+      background-position: 0 -78px
+    .s_it_6
+      background-position: -92px -78px
+    .s_it_7
+      background-position: -207px -78px
+    .s_it_8
+      background-position: -328px -78px
+      height: 45px
+      width: 45px
+
+
+  .testimonials
+    text-align: center
+    margin: 0 auto
+    .testimonials_content
+      margin: 0 auto
+      q
+        font-size: 24px
+        color: #fff
+      p
+        font-size: 12px
+        color: #fff
+        padding: 30px 0 40px 0
+
+  .clients
+    @media screen and (max-width: 700px)
+      display: none
+    .client
+      background-image: url(../img/clients_iconset.png)
+      height: 72px
+      width: 152px
+      margin: 0 auto
+    .client_1
+      background-position: 21px 0
+    .client_2
+      background-position: -117px 0
+    .client_3
+      background-position: -286px 0
+    .client_4
+      background-position: -454px 0
+    .client_5
+      background-position: 21px 0
+
+  .project
+    background-color: #f5f5f5
+    text-align: center
+    h2
+      font-size: 30px
+      color: #191919
+    p
+      font-size: 16px
+      color: #8c8c8c
+      font-family: 'Nunito Sans', regular, sans-serif
+    form
+      color: #787878
+      font-size: 15px
+      font-family: 'Nunito Sans', regular, sans-serif
+      outline: none
+      input
+        margin: 8px
+        width: 100%
+        outline: none
+        border: none
+        padding: 15px
+      textarea
+        margin: 5px
+        outline: none
+        border: none
+        width: 100%
+        padding: 15px
+        resize: none
+      .submit
+        color: #fff
+        background-color: #10c9c3
+        text-transform: uppercase
+
+
+  .faq
+    padding: 0 0 20px 0
+    h1
+      margin: 0 0 2% 0
+    h4
+      font-size: 30px
+      cursor: pointer
+    p
+      display: none
+      &:first-of-type
+        display: block
+
+
+
+
+
+footer
+  text-align: center
+  background-color: #000
+  color: #fff
+  h3
+    margin-top: 0
+    color: #e9e9e9
+    font-size: 18px
+  p
+    color: #9b9b9b
+    font-size: 15px
+    font-family: 'Nunito Sans', regular, sans-serif
+  a
+    text-decoration: none
+    font-family: 'Nunito Sans', regular, sans-serif
+    font-size: 15px
+    color: #9b9b9b
+    &:hover
+      color: #e9e9e9
+  li
+    list-style-type: none
+
+.pointer
+  opacity: 0
+  width: 50px
+  height: 70px
+  float: right
+  position: fixed
+  bottom: 10px
+  right: 5px
+  z-index: 1000
+  cursor: pointer
+  background-image: url(../img/pointer.png)
+  background-size: contain
+  background-repeat: no-repeat
+
+.popup
+  display: none
+  width: 100%
+  height: 100%
+  background-color: rgba(0,0,0,.3)
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 9000
+  cursor: pointer
+  .popup_form_wrap
+    width: 70%
+    position: absolute
+    text-align: center
+    font-family: 'Nunito Sans', regular, sans-serif
+    color: #787878
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    cursor: default
+    @media screen and (max-width: 768px)
+      width: 100%
+      height: 100%
+    p
+      padding-top: 30px
+      font-size: 30px
+      @media screen and (max-width: 768px)
+        padding-top: 10px
+    form
+      font-size: 15px
+      outline: none
+      @media screen and (max-width: 768px)
+        padding: 15px 0
+      input
+        margin: 8px
+        width: 80%
+        outline: none
+        border: none
+        padding: 15px
+      textarea
+        margin: 5px
+        outline: none
+        border: none
+        width: 80%
+        padding: 15px
+        resize: none
+      .submit
+        color: #fff
+        background-color: #10c9c3
+        text-transform: uppercase
+    .popup_close
+      position: absolute
+      top: 15px
+      right: 15px
+      width: 25px
+      height: 25px
+      cursor: pointer
+      @media screen and (max-width: 768px)
+        width: 60px
+        height: 60px
+        bottom: 15px
+        right: 15px
+        top: auto
+      &:before
+        content: ""
+        background-color: #10c9c3
+        position: absolute
+        height: 2px
+        width: 30px
+        top: 11px
+        left: -3px
+        transform: rotate(-45deg)
+        @media screen and (max-width: 768px)
+          top: 25px
+          left: 5px
+          width: 50px
+          height: 2px
+      &:after
+        content: ""
+        background-color: #10c9c3
+        position: absolute
+        height: 2px
+        width: 30px
+        top: 11px
+        left: -3px
+        transform: rotate(45deg)
+        @media screen and (max-width: 768px)
+          top: 25px
+          left: 5px
+          width: 50px
+          height: 2px
+
+
+.slick-prev,
+.slick-next
+  width: 50%
+  height: 100%
+  z-index: 2
+  opacity: 0
+
+.slick-next
+  right: 0
+
+.slick-prev
+  left: 0
+
+
+.slick-dots
+  li.slick-active
+    z-index: 4
+    button::before
+      color: #fff
+      opacity: 1
+      font-size: 7px
+
+
+	
+
