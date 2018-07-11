@@ -379,7 +379,7 @@ footer {
       right: 15px;
       width: 25px;
       height: 25px;
-      cursor: pointe; }
+      cursor: pointer; }
       .popup .popup_form_wrap .popup_close:before {
         content: "";
         background-color: #10c9c3;
@@ -412,11 +412,15 @@ footer {
 .slick-prev {
   left: 0; }
 
-.slick-dots li.slick-active {
-  z-index: 4; }
-  .slick-dots li.slick-active button::before {
-    color: #fff;
-    opacity: 1;
-    font-size: 7px; }
+.slick-dots {
+  color: #9b9b9b; }
+  .slick-dots li {
+    z-index: 4; }
+    .slick-dots li .slick-active button::before {
+      color: #fff; }
+    .slick-dots li button::before {
+      color: #dedede;
+      opacity: 1;
+      font-size: 20px; }
 
 /*# sourceMappingURL=main.css.map */
