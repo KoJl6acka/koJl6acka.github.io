@@ -61,7 +61,8 @@ $(document).ready(function () {
         slidesToScroll: 1,
         initialSlide: 1,
         touchThreshold: 2,
-        fade: true
+        fade: true,
+        swipeToSlide: true
     });
 
     $('#home').on('click', '.popup_open_button', function(){
