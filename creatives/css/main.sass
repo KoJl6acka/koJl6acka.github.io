@@ -79,6 +79,10 @@ body, html
 						font-size: 20px
 						line-height: 60px
 						color: $white
+						@media screen and (max-width: 991.98px)
+							font-size: 18px
+							line-height: 50px
+
 		.main_social
 			display: flex
 			justify-content: space-between
@@ -101,6 +105,22 @@ body, html
 						color: $skype
 					&:nth-child(4)
 						color: $linked-in
+			p
+				display: none
+			@media screen and (max-width: 991.98px)
+				a
+					display: none
+				p
+					font-family: 'Wendy One', sans-serif
+					padding: 25px 5px 5px 5px
+					display: inline-block
+					font-size: 18px
+					height: 60px
+					line-height: 50px
+					color: $white
+					margin: 0
+					border-bottom: 3px solid $main
+
 	.main_body
 		text-align: center
 		h1

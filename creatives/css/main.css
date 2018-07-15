@@ -237,6 +237,10 @@ body, html {
           font-size: 20px;
           line-height: 60px;
           color: #fff; }
+          @media screen and (max-width: 991.98px) {
+            .main header nav ul li a {
+              font-size: 18px;
+              line-height: 50px; } }
   .main header .main_social {
     display: flex;
     justify-content: space-between;
@@ -258,6 +262,21 @@ body, html {
         color: #01AEF2; }
       .main header .main_social a:hover:nth-child(4) {
         color: #01AEF2; }
+    .main header .main_social p {
+      display: none; }
+    @media screen and (max-width: 991.98px) {
+      .main header .main_social a {
+        display: none; }
+      .main header .main_social p {
+        font-family: "Wendy One", sans-serif;
+        padding: 25px 5px 5px 5px;
+        display: inline-block;
+        font-size: 18px;
+        height: 60px;
+        line-height: 50px;
+        color: #fff;
+        margin: 0;
+        border-bottom: 3px solid #11749E; } }
   .main .main_body {
     text-align: center; }
     .main .main_body h1 {
