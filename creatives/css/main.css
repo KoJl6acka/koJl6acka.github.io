@@ -350,7 +350,7 @@ body, html {
       color: #F5F5F5; }
       @media screen and (max-width: 767.98px) {
         .main .main_body h1 {
-          font-size: 70px; } }
+          font-size: 60px; } }
     .main .main_body span {
       font-family: "Wendy One", sans-serif;
       font-size: 13px;
@@ -359,8 +359,8 @@ body, html {
       display: block;
       border: 1px solid #F5F5F5;
       border-radius: 50%;
-      height: 60px;
-      width: 60px;
+      height: 63px;
+      width: 63px;
       margin: 20px auto 20px auto; }
       .main .main_body a:hover {
         border: 1px solid #11749E; }
@@ -375,7 +375,7 @@ body, html {
         position: relative;
         height: 15px;
         width: 15px;
-        transform: rotate(45deg) translate(0, 70%);
+        transform: rotate(45deg) translate(0, 75%);
         border-bottom: 3px solid #F5F5F5;
         border-right: 3px solid #F5F5F5;
         top: 20%;
@@ -529,7 +529,8 @@ body, html {
     font-size: 15px; }
 
 .key {
-  background-image: url("../img/key_bg.jpg"); }
+  background-image: url("../img/key_bg.jpg");
+  text-align: center; }
   .key h5 {
     font-family: "Merriweather Sans", sans-serif;
     font-size: 25px;
@@ -548,13 +549,11 @@ body, html {
     display: inline-block;
     background-color: #11749E;
     text-transform: uppercase;
-    transition: width 0.5s; }
-    .key a:nth-of-type(1) {
-      width: 70%; }
-    .key a:nth-of-type(2) {
-      width: 75%; }
-    .key a:nth-of-type(3) {
-      width: 80%; }
+    transition: width 0.5s;
+    width: 75%;
+    border: 3px solid rgba(0, 0, 0, 0); }
+    .key a:hover {
+      border: 3px solid; }
   .key img {
     display: block;
     width: 100%; }
@@ -661,13 +660,21 @@ body, html {
         margin: 2.25% 2.25% 2.25% 0; }
       .contact form input:nth-of-type(3) {
         margin: 2.25% 0 2.25% 2.25%; }
+      @media screen and (max-width: 991.98px) {
+        .contact form input {
+          margin: 2.5% 0;
+          width: 100%; }
+          .contact form input:nth-of-type(1) {
+            margin: 2.5% 0; }
+          .contact form input:nth-of-type(3) {
+            margin: 2.5% 0; } }
     .contact form textarea {
       width: 100%;
       padding: 15px;
       background-color: rgba(0, 0, 0, 0);
       color: #fff;
-      margin-bottom: 20px;
-      resize: none; }
+      resize: none;
+      margin: 2.5% 0 2.5% 0; }
 
 #submit {
   font-family: "Wendy One", sans-serif;
@@ -682,6 +689,9 @@ body, html {
   cursor: pointer; }
   #submit:hover {
     border: 3px solid; }
+  @media screen and (max-width: 991.98px) {
+    #submit {
+      width: 100%; } }
 
 .map {
   height: 450px;
