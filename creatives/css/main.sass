@@ -34,11 +34,17 @@ body, html
 	padding: 0
 	margin: 0
 
+
+
+
+
 .main
 	background-image: url('../img/top_bg.jpg')
 	background-size: cover
 	header
+		height: 100px
 		.main_logo
+			height: 100px
 			p
 				font-family: 'Wendy One', sans-serif
 				text-align: center
@@ -54,7 +60,12 @@ body, html
 				box-shadow: 10px 10px $grey
 				position: relative
 				top: 50%
-				transform: translateY(-50%)
+				transform: translate(0 ,-50%)
+			@media screen and (max-width: 767.98px)
+				position: absolute
+				top: 20px
+				left: 20px
+				height: 60px
 		nav
 			height: 100px
 			ul
@@ -79,10 +90,28 @@ body, html
 						font-size: 20px
 						line-height: 60px
 						color: $white
-						@media screen and (max-width: 991.98px)
-							font-size: 18px
-							line-height: 50px
+			@media screen and (max-width: 991.98px)
+				a
+					font-size: 16px
+					line-height: 50px
+		.main_nav_open
+			display: block
+			position: absolute
+			top: 80px
+			right: 20px
+			width: 100px
 
+			ul
+				width: 100px
+				display: block
+				height: 230px
+				li
+					padding-top: 5px
+					display: block
+					a
+						display: block
+						font-size: 16px
+						line-height: 20px
 		.main_social
 			display: flex
 			justify-content: space-between
@@ -105,21 +134,58 @@ body, html
 						color: $skype
 					&:nth-child(4)
 						color: $linked-in
-			p
+		.main_hamburger
+			display: none
+			cursor: pointer
+			height: 60px
+			width: 60px
+			background-color: $main
+			position: absolute
+			top: 20px
+			right: 20px
+			.main_hamburger-inner
+				background-color: $white
+				display: block
+				width: 40px
+				height: 3px
+				position: absolute
+				top: 50%
+				right: 50%
+				transform: translateX(50%)
+				&:before
+					position: absolute
+					content: " "
+					height: 3px
+					width: 40px
+					display: block
+					background-color: $white
+					top: 12px
+				&:after
+					position: absolute
+					content: " "
+					height: 3px
+					width: 40px
+					display: block
+					background-color: $white
+					bottom: 12px
+		@media screen and (max-width: 991.98px)
+			.main_social
+				position: absolute
+				display: inline
+				top: 15%
+				right: 10px
+				width: 40px
+				z-index: 2
+				text-align: right
+		@media screen and (max-width: 767.98px)
+			nav
 				display: none
-			@media screen and (max-width: 991.98px)
-				a
-					display: none
-				p
-					font-family: 'Wendy One', sans-serif
-					padding: 25px 5px 5px 5px
-					display: inline-block
-					font-size: 18px
-					height: 60px
-					line-height: 50px
-					color: $white
-					margin: 0
-					border-bottom: 3px solid $main
+			.main_social
+				display: none
+			.main_hamburger
+				display: block
+
+
 
 	.main_body
 		text-align: center
@@ -130,6 +196,8 @@ body, html
 			line-height: 300px
 			margin: 0
 			color: $lightGrey
+			@media screen and (max-width: 767.98px)
+				font-size: 70px
 
 
 		span
@@ -172,6 +240,8 @@ body, html
 	100%
 		top: 20%
 		opacity: .0
+
+
 
 .about
 	text-align: center
@@ -265,7 +335,7 @@ body, html
 			text-transform: uppercase
 			position: absolute
 			margin: 0 auto
-			top: 50%
+			top: 47%
 			left: 50%
 			transform: translate(-50%, -50%)
 		span
@@ -392,13 +462,15 @@ body, html
 	.team_person
 		text-align: center
 		position: relative
+		overflow: hidden
 		.team_person_descr
 			background-color: $white
 			position: absolute
-			bottom: 0
+			bottom: -70px
 			left: 50%
 			transform: translateX(-50%)
 			width: 80%
+			transition: bottom 1s
 			p:nth-of-type(odd)
 				font-family: 'Merriweather Sans', sans-serif
 				text-transform: uppercase
@@ -410,9 +482,16 @@ body, html
 				color: $dark
 				font-size: 15px
 				margin: 0
+		&:hover
+			.team_person_descr
+				bottom: 0
+
+
 	img
 		display: block
 		width: 100%
+
+
 
 .contact
 	background-image: url('../img/contact_bg.jpg')
@@ -428,7 +507,7 @@ body, html
 			text-transform: uppercase
 			position: absolute
 			margin: 0 auto
-			top: 50%
+			top: 42%
 			left: 50%
 			transform: translate(-50%, -50%)
 		span

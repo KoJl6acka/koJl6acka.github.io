@@ -197,86 +197,148 @@ body, html {
 .main {
   background-image: url("../img/top_bg.jpg");
   background-size: cover; }
-  .main header .main_logo p {
-    font-family: "Wendy One", sans-serif;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 30px;
-    line-height: 60px;
-    margin: 0;
-    color: #fff;
-    display: block;
-    height: 60px;
-    width: 60px;
-    background-color: #11749E;
-    box-shadow: 10px 10px #e2e2e2;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%); }
-  .main header nav {
+  .main header {
     height: 100px; }
-    .main header nav ul {
-      padding: 0;
-      margin: 0;
-      list-style-type: none;
-      width: 100%;
-      text-align: center;
-      display: flex;
-      justify-content: space-between; }
-      .main header nav ul li {
-        padding-top: 20px;
-        border-bottom: 3px solid rgba(0, 0, 0, 0);
-        transition: border-bottom-color 0.3s; }
-        .main header nav ul li:hover {
-          border-bottom: 3px solid #11749E; }
-        .main header nav ul li a {
-          font-family: "Wendy One", sans-serif;
-          padding: 5px;
-          display: inline-block;
-          text-decoration: none;
-          font-size: 20px;
-          line-height: 60px;
-          color: #fff; }
-          @media screen and (max-width: 991.98px) {
-            .main header nav ul li a {
-              font-size: 18px;
-              line-height: 50px; } }
-  .main header .main_social {
-    display: flex;
-    justify-content: space-between;
-    text-align: center; }
-    .main header .main_social a {
-      width: 100%;
-      display: inline-flex;
-      font-size: 22px;
-      color: #F5F5F5;
-      text-decoration: none;
-      align-items: center;
-      transition: color 0.5s;
-      transform: translateY(5%); }
-      .main header .main_social a:hover:nth-child(1) {
-        color: #3B5998; }
-      .main header .main_social a:hover:nth-child(2) {
-        color: #1EA1F3; }
-      .main header .main_social a:hover:nth-child(3) {
-        color: #01AEF2; }
-      .main header .main_social a:hover:nth-child(4) {
-        color: #01AEF2; }
-    .main header .main_social p {
-      display: none; }
-    @media screen and (max-width: 991.98px) {
-      .main header .main_social a {
-        display: none; }
-      .main header .main_social p {
+    .main header .main_logo {
+      height: 100px; }
+      .main header .main_logo p {
         font-family: "Wendy One", sans-serif;
-        padding: 25px 5px 5px 5px;
-        display: inline-block;
-        font-size: 18px;
-        height: 60px;
-        line-height: 50px;
-        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 30px;
+        line-height: 60px;
         margin: 0;
-        border-bottom: 3px solid #11749E; } }
+        color: #fff;
+        display: block;
+        height: 60px;
+        width: 60px;
+        background-color: #11749E;
+        box-shadow: 10px 10px #e2e2e2;
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%); }
+      @media screen and (max-width: 767.98px) {
+        .main header .main_logo {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          height: 60px; } }
+    .main header nav {
+      height: 100px; }
+      .main header nav ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: space-between; }
+        .main header nav ul li {
+          padding-top: 20px;
+          border-bottom: 3px solid rgba(0, 0, 0, 0);
+          transition: border-bottom-color 0.3s; }
+          .main header nav ul li:hover {
+            border-bottom: 3px solid #11749E; }
+          .main header nav ul li a {
+            font-family: "Wendy One", sans-serif;
+            padding: 5px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 60px;
+            color: #fff; }
+      @media screen and (max-width: 991.98px) {
+        .main header nav a {
+          font-size: 16px;
+          line-height: 50px; } }
+    .main header .main_nav_open {
+      display: block;
+      position: absolute;
+      top: 80px;
+      right: 20px;
+      width: 100px; }
+      .main header .main_nav_open ul {
+        width: 100px;
+        display: block;
+        height: 230px; }
+        .main header .main_nav_open ul li {
+          padding-top: 5px;
+          display: block; }
+          .main header .main_nav_open ul li a {
+            display: block;
+            font-size: 16px;
+            line-height: 20px; }
+    .main header .main_social {
+      display: flex;
+      justify-content: space-between;
+      text-align: center; }
+      .main header .main_social a {
+        width: 100%;
+        display: inline-flex;
+        font-size: 22px;
+        color: #F5F5F5;
+        text-decoration: none;
+        align-items: center;
+        transition: color 0.5s;
+        transform: translateY(5%); }
+        .main header .main_social a:hover:nth-child(1) {
+          color: #3B5998; }
+        .main header .main_social a:hover:nth-child(2) {
+          color: #1EA1F3; }
+        .main header .main_social a:hover:nth-child(3) {
+          color: #01AEF2; }
+        .main header .main_social a:hover:nth-child(4) {
+          color: #01AEF2; }
+    .main header .main_hamburger {
+      display: none;
+      cursor: pointer;
+      height: 60px;
+      width: 60px;
+      background-color: #11749E;
+      position: absolute;
+      top: 20px;
+      right: 20px; }
+      .main header .main_hamburger .main_hamburger-inner {
+        background-color: #fff;
+        display: block;
+        width: 40px;
+        height: 3px;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translateX(50%); }
+        .main header .main_hamburger .main_hamburger-inner:before {
+          position: absolute;
+          content: " ";
+          height: 3px;
+          width: 40px;
+          display: block;
+          background-color: #fff;
+          top: 12px; }
+        .main header .main_hamburger .main_hamburger-inner:after {
+          position: absolute;
+          content: " ";
+          height: 3px;
+          width: 40px;
+          display: block;
+          background-color: #fff;
+          bottom: 12px; }
+    @media screen and (max-width: 991.98px) {
+      .main header .main_social {
+        position: absolute;
+        display: inline;
+        top: 15%;
+        right: 10px;
+        width: 40px;
+        z-index: 2;
+        text-align: right; } }
+    @media screen and (max-width: 767.98px) {
+      .main header nav {
+        display: none; }
+      .main header .main_social {
+        display: none; }
+      .main header .main_hamburger {
+        display: block; } }
   .main .main_body {
     text-align: center; }
     .main .main_body h1 {
@@ -286,6 +348,9 @@ body, html {
       line-height: 300px;
       margin: 0;
       color: #F5F5F5; }
+      @media screen and (max-width: 767.98px) {
+        .main .main_body h1 {
+          font-size: 70px; } }
     .main .main_body span {
       font-family: "Wendy One", sans-serif;
       font-size: 13px;
@@ -413,7 +478,7 @@ body, html {
       text-transform: uppercase;
       position: absolute;
       margin: 0 auto;
-      top: 50%;
+      top: 47%;
       left: 50%;
       transform: translate(-50%, -50%); }
     .blog .blog_header span {
@@ -530,14 +595,16 @@ body, html {
     color: #222222; }
   .team .team_person {
     text-align: center;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
     .team .team_person .team_person_descr {
       background-color: #fff;
       position: absolute;
-      bottom: 0;
+      bottom: -70px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80%; }
+      width: 80%;
+      transition: bottom 1s; }
       .team .team_person .team_person_descr p:nth-of-type(odd) {
         font-family: "Merriweather Sans", sans-serif;
         text-transform: uppercase;
@@ -549,6 +616,8 @@ body, html {
         color: #222222;
         font-size: 15px;
         margin: 0; }
+    .team .team_person:hover .team_person_descr {
+      bottom: 0; }
   .team img {
     display: block;
     width: 100%; }
@@ -567,7 +636,7 @@ body, html {
       text-transform: uppercase;
       position: absolute;
       margin: 0 auto;
-      top: 50%;
+      top: 42%;
       left: 50%;
       transform: translate(-50%, -50%); }
     .contact .contact_header span {
