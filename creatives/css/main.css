@@ -179,14 +179,14 @@
   width: 100%; }
 
 @font-face {
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans Bold";
   src: local("../fonts/Merriweather_Sans/MerriweatherSans-ExtraBold.ttf"); }
 @font-face {
   font-family: "Wendy One";
   src: local("../fonts/Wendy_One/WendyOne-Regular.ttf"); }
 @font-face {
-  font-family: "Gaegu", cursive;
-  src: local("../fonts/Gaegu/Gaegu-Regular.ttf"); }
+  font-family: "Merriweather Sans Regular";
+  src: local("../fonts/Merriweather_Sans/MerriweatherSans-Regular.ttf"); }
 p, h1, h2, h3, h4, h5, h6 {
   cursor: default; }
 
@@ -375,9 +375,6 @@ body, html {
     @media screen and (max-width: 767.98px) {
       .main header nav {
         display: none; }
-        .main header nav ul {
-          height: 0;
-          transition: height 0.5s 0.5s; }
       .main header .main_social {
         display: none; }
       .main header .main_hamburger {
@@ -395,11 +392,15 @@ body, html {
           background-color: #11749E;
           width: 100%;
           display: block;
-          height: 260px; }
+          height: 270px; }
           .main header .main_nav_open ul li {
-            padding-top: 5px;
+            padding: 0;
+            border: none;
             display: block; }
+            .main header .main_nav_open ul li:hover {
+              border: none; }
             .main header .main_nav_open ul li a {
+              padding: 10px;
               display: block;
               font-size: 20px;
               line-height: 25px; }
@@ -443,7 +444,7 @@ body, html {
   height: calc(100vh - 100px);
   position: relative; }
   .main_body h1 {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     text-transform: uppercase;
     font-size: 100px;
     color: #F5F5F5;
@@ -507,7 +508,7 @@ body, html {
   background-color: #11749E; }
   .about .about_head {
     position: relative;
-    font-family: "Merriweather Sans", sans-serif; }
+    font-family: "Merriweather Sans Bold", sans-serif; }
     .about .about_head p {
       width: 100%;
       font-size: 38px;
@@ -541,38 +542,38 @@ body, html {
     .about .about_feature p {
       color: #fff; }
       .about .about_feature p:nth-child(even) {
-        font-family: "Merriweather Sans", sans-serif;
+        font-family: "Merriweather Sans Bold", sans-serif;
         font-size: 18px;
         margin: 23px; }
       .about .about_feature p:nth-child(odd) {
-        font-family: "Gaegu", cursive;
+        font-family: "Merriweather Sans Regular", sans-serif;
         font-size: 15px; }
   .about .about_gallery {
     text-align: left; }
     .about .about_gallery .about_gallery_row_1 {
       background-color: #222222; }
       .about .about_gallery .about_gallery_row_1 .about_gallery_text p {
-        font-family: "Gaegu", cursive;
+        font-family: "Merriweather Sans Regular", sans-serif;
         color: #fff;
         font-size: 15px; }
         .about .about_gallery .about_gallery_row_1 .about_gallery_text p:nth-child(1) {
           font-family: "Wendy One", sans-serif;
           font-size: 13px; }
       .about .about_gallery .about_gallery_row_1 .about_gallery_text h3 {
-        font-family: "Merriweather Sans", sans-serif;
+        font-family: "Merriweather Sans Bold", sans-serif;
         color: #fff;
         font-size: 25px; }
     .about .about_gallery .about_gallery_row_2 {
       background-color: #F5F5F5; }
       .about .about_gallery .about_gallery_row_2 .about_gallery_text p {
-        font-family: "Gaegu", cursive;
+        font-family: "Merriweather Sans Regular", sans-serif;
         color: #222222;
         font-size: 15px; }
         .about .about_gallery .about_gallery_row_2 .about_gallery_text p:nth-child(1) {
           font-family: "Wendy One", sans-serif;
           font-size: 13px; }
       .about .about_gallery .about_gallery_row_2 .about_gallery_text h3 {
-        font-family: "Merriweather Sans", sans-serif;
+        font-family: "Merriweather Sans Bold", sans-serif;
         color: #222222;
         font-size: 25px; }
     .about .about_gallery img {
@@ -585,7 +586,7 @@ body, html {
   .blog .blog_header {
     position: relative; }
     .blog .blog_header p {
-      font-family: "Merriweather Sans", sans-serif;
+      font-family: "Merriweather Sans Bold", sans-serif;
       font-size: 38px;
       text-transform: uppercase;
       position: absolute;
@@ -594,7 +595,7 @@ body, html {
       left: 50%;
       transform: translate(-50%, -50%); }
     .blog .blog_header span {
-      font-family: "Merriweather Sans", sans-serif;
+      font-family: "Merriweather Sans Bold", sans-serif;
       text-transform: uppercase;
       font-size: 250px;
       color: #e2e2e2;
@@ -603,7 +604,7 @@ body, html {
       line-height: 0.8;
       font-weight: 700; }
   .blog p {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     color: #222222;
     font-size: 30px; }
   .blog .blog_section img {
@@ -613,13 +614,13 @@ body, html {
     .blog .blog_section img:hover {
       box-shadow: 0 0 50px 5px #222222; }
   .blog .blog_section h3 {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     text-transform: uppercase;
     font-size: 18px;
     color: #11749E;
     padding-top: 20px; }
   .blog .blog_section p {
-    font-family: "Gaegu", cursive;
+    font-family: "Merriweather Sans Regular", sans-serif;
     font-size: 15px;
     color: #222222;
     width: 95%; }
@@ -636,7 +637,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%); }
   .quickAction p {
-    font-family: "Gaegu", cursive;
+    font-family: "Merriweather Sans Regular", sans-serif;
     color: #fff;
     font-size: 15px; }
 
@@ -644,11 +645,11 @@ body, html {
   background-image: url("../img/key_bg.jpg");
   text-align: center; }
   .key h5 {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     font-size: 25px;
     color: #fff; }
   .key p {
-    font-family: "Gaegu", cursive;
+    font-family: "Merriweather Sans Regular", sans-serif;
     font-size: 15px;
     color: #fff;
     padding-bottom: 30px; }
@@ -683,7 +684,7 @@ body, html {
   text-align: center; }
   .team .team_header {
     position: relative;
-    font-family: "Merriweather Sans", sans-serif; }
+    font-family: "Merriweather Sans Bold", sans-serif; }
     .team .team_header p {
       font-size: 38px;
       text-transform: uppercase;
@@ -701,7 +702,7 @@ body, html {
       line-height: 0.8;
       font-weight: 700; }
   .team p {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     font-size: 30px;
     color: #222222; }
   .team .team_person {
@@ -717,7 +718,7 @@ body, html {
       width: 80%;
       transition: bottom 1s; }
       .team .team_person .team_person_descr p:nth-of-type(odd) {
-        font-family: "Merriweather Sans", sans-serif;
+        font-family: "Merriweather Sans Bold", sans-serif;
         text-transform: uppercase;
         color: #11749E;
         font-size: 20px;
@@ -737,7 +738,7 @@ body, html {
   background-image: url("../img/contact_bg.jpg");
   text-align: center; }
   .contact .contact_header {
-    font-family: "Merriweather Sans", sans-serif;
+    font-family: "Merriweather Sans Bold", sans-serif;
     position: relative;
     text-align: center; }
     .contact .contact_header p {
@@ -812,7 +813,7 @@ body, html {
     width: 100%; }
 
 footer {
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Merriweather Sans Bold", sans-serif;
   background-color: #222222;
   min-height: 100px;
   position: relative; }
