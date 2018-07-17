@@ -52,21 +52,6 @@ $(function(){
         }, 700, $.bez([.29,.78,.38,.97]));
     });
 
-    function scrollAnimation(){
-        var imagePos = $('#about').offset().top;
-        var topOfWindow = $(window).scrollTop();
-        if(imagePos < topOfWindow+50) {
-            $('.about_animation_1').addClass('about_bounce_1');
-            $('.about_animation_2').addClass('about_bounce_2');
-            $('.about_animation_3').addClass('about_bounce_3');
-            $('.about_animation_4').addClass('about_bounce_4');
-            $(window).off('scroll', scrollAnimation);
-        }
-    }
-
-    $(window).on('scroll', scrollAnimation);
-
-
 
 
 });

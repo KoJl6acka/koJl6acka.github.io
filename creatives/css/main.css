@@ -232,9 +232,6 @@ body, html {
     .pointer:hover span:before, .pointer:hover span:after {
       background-color: #fff; }
 
-/*.main_wrap
- * z-index: -3
- * visibility: hidden */
 .main {
   position: relative;
   height: 100vh;
@@ -284,11 +281,11 @@ body, html {
             border-bottom: 3px solid #11749E; }
           .main header nav ul li a {
             font-family: "Wendy One", sans-serif;
-            padding: 5px;
+            padding: 15px 5px 5px 5px;
             display: inline-block;
             text-decoration: none;
             font-size: 20px;
-            line-height: 60px;
+            line-height: 40px;
             color: #fff; }
       @media screen and (max-width: 991.98px) {
         .main header nav a {
@@ -464,14 +461,14 @@ body, html {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 103px; }
+    bottom: 123px; }
   .main_body a {
     display: block;
     border: 1px solid #F5F5F5;
     border-radius: 50%;
     height: 63px;
     width: 63px;
-    margin: 20px 0;
+    margin: 40px 0;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -581,40 +578,7 @@ body, html {
     .about .about_gallery img {
       width: 100%;
       display: block; }
-  .about .about_animation_1,
-  .about .about_animation_2,
-  .about .about_animation_3,
-  .about .about_animation_4 {
-    visibility: hidden; }
-  .about .about_bounce_1 {
-    animation: fadeInRight 0.5s 0.85s forwards; }
-  .about .about_bounce_2 {
-    animation: fadeInRight 0.5s 0.6s forwards; }
-  .about .about_bounce_3 {
-    animation: fadeInLeft 0.5s 0.6s forwards; }
-  .about .about_bounce_4 {
-    animation: fadeInLeft 0.5s 0.85s forwards; }
 
-@keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0); }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible; } }
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0); }
-  to {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible; } }
 .blog {
   background-color: #fff;
   text-align: center; }
@@ -870,7 +834,8 @@ footer {
       display: inline;
       text-decoration: none;
       color: #fff;
-      font-size: 18px; }
+      font-size: 22px;
+      padding: 0 5px; }
       footer .footer_socials a:hover:nth-child(1) {
         color: #3B5998; }
       footer .footer_socials a:hover:nth-child(2) {
