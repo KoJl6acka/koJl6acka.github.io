@@ -232,7 +232,12 @@ body, html {
     .pointer:hover span:before, .pointer:hover span:after {
       background-color: #fff; }
 
+/*.main_wrap
+ * z-index: -3
+ * visibility: hidden */
 .main {
+  position: relative;
+  height: 100vh;
   background-image: url("../img/top_bg.jpg");
   background-size: cover; }
   .main header {
@@ -335,7 +340,8 @@ body, html {
           width: 40px;
           height: 3px;
           display: block;
-          margin-top: 15px; }
+          margin-top: 15px;
+          border-radius: 10%; }
           .main header .main_hamburger .main_hamburger-inner-wrap .main_hamburger-inner:before {
             position: absolute;
             content: " ";
@@ -343,7 +349,8 @@ body, html {
             width: 40px;
             display: block;
             background-color: #fff;
-            top: 0; }
+            top: 0;
+            border-radius: 10%; }
           .main header .main_hamburger .main_hamburger-inner-wrap .main_hamburger-inner:after {
             position: absolute;
             content: " ";
@@ -351,7 +358,8 @@ body, html {
             width: 40px;
             display: block;
             background-color: #fff;
-            bottom: 0; }
+            bottom: 0;
+            border-radius: 10%; }
     .main header .main_hamburger-inner-animate {
       animation: hamburgerAnimation 0.5s forwards; }
       .main header .main_hamburger-inner-animate:before {
@@ -434,28 +442,40 @@ body, html {
     bottom: 5px;
     left: -3px; } }
 .main_body {
-  text-align: center; }
+  text-align: center;
+  height: calc(100vh - 100px);
+  position: relative; }
   .main_body h1 {
     font-family: "Merriweather Sans", sans-serif;
     text-transform: uppercase;
     font-size: 100px;
-    line-height: 350px;
-    margin: 0;
-    color: #F5F5F5; }
+    color: #F5F5F5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -150%); }
     @media screen and (max-width: 767.98px) {
       .main_body h1 {
         font-size: 60px; } }
   .main_body span {
     font-family: "Wendy One", sans-serif;
     font-size: 13px;
-    color: #F5F5F5; }
+    color: #F5F5F5;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 103px; }
   .main_body a {
     display: block;
     border: 1px solid #F5F5F5;
     border-radius: 50%;
     height: 63px;
     width: 63px;
-    margin: 20px auto 20px auto; }
+    margin: 20px 0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); }
     .main_body a:hover {
       border: 1px solid #11749E; }
       .main_body a:hover:before {
@@ -485,6 +505,7 @@ body, html {
     top: 20%;
     opacity: 0; } }
 .about {
+  min-height: 100vh;
   text-align: center;
   background-color: #11749E; }
   .about .about_head {
@@ -828,8 +849,49 @@ body, html {
 
 footer {
   font-family: "Merriweather Sans", sans-serif;
-  background-color: #222222; }
+  background-color: #222222;
+  min-height: 100px;
+  position: relative; }
   footer p {
-    color: #fff; }
+    font-size: 18px;
+    color: #fff;
+    display: inline;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    margin: 0; }
+  footer .footer_socials {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%); }
+    footer .footer_socials a {
+      display: inline;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px; }
+      footer .footer_socials a:hover:nth-child(1) {
+        color: #3B5998; }
+      footer .footer_socials a:hover:nth-child(2) {
+        color: #1EA1F3; }
+      footer .footer_socials a:hover:nth-child(3) {
+        color: #01AEF2; }
+      footer .footer_socials a:hover:nth-child(4) {
+        color: #01AEF2; }
+  @media screen and (max-width: 575.98px) {
+    footer .footer_socials,
+    footer p {
+      left: 50%;
+      transform: translate(-50%, 50%);
+      right: auto;
+      text-align: center;
+      margin-top: -20px; } }
+
+.h100 {
+  min-height: 100px; }
+  @media screen and (max-width: 575.98px) {
+    .h100 {
+      min-height: 70px; } }
 
 /*# sourceMappingURL=main.css.map */

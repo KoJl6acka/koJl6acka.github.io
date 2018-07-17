@@ -1,9 +1,10 @@
 $(function(){
 
 
+
     $('.main_hamburger').on('click', function(){
-        if($('.main_hamburger').css('width') == '60px'){
-            $('.main_hamburger').css('width', '120');
+        if($(this).css('width') == '60px'){
+            $(this).css('width', '120');
             $('.main_hamburger-inner').addClass('main_hamburger-inner-animate');
             $('nav').addClass('main_nav_open');
         }
