@@ -114,12 +114,18 @@ html, body {
     html .heads .heads_item, body .heads .heads_item {
       cursor: pointer;
       position: relative;
+      -webkit-transition: 0.6s;
+      -o-transition: 0.6s;
       transition: 0.6s;
-      transform-style: preserve-3d; }
+      -webkit-transform-style: preserve-3d;
+              transform-style: preserve-3d; }
     html .heads img, body .heads img {
-      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
       opacity: 0;
       width: 100%;
+      -webkit-transition: opacity 1s;
+      -o-transition: opacity 1s;
       transition: opacity 1s;
       z-index: -1; }
       html .heads img:nth-of-type(2), body .heads img:nth-of-type(2) {
@@ -338,7 +344,9 @@ footer {
     color: #787878;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     cursor: default; }
     @media screen and (max-width: 768px) {
       .popup .popup_form_wrap {
@@ -389,7 +397,9 @@ footer {
         width: 30px;
         top: 11px;
         left: -3px;
-        transform: rotate(-45deg); }
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg); }
       .popup .popup_form_wrap .popup_close:after {
         content: "";
         background-color: #10c9c3;
@@ -398,7 +408,9 @@ footer {
         width: 30px;
         top: 11px;
         left: -3px;
-        transform: rotate(45deg); }
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg); }
 
 .slick-prev,
 .slick-next {
@@ -423,5 +435,3 @@ footer {
       color: #dedede;
       opacity: 1;
       font-size: 20px; }
-
-/*# sourceMappingURL=main.css.map */
