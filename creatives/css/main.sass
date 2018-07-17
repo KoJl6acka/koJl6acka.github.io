@@ -1,0 +1,798 @@
+@import 'regular'
+
+@font-face
+	font-family: 'Merriweather Sans'
+	src: local('../fonts/Merriweather_Sans/MerriweatherSans-ExtraBold.ttf')
+
+@font-face
+	font-family: 'Wendy One'
+	src: local('../fonts/Wendy_One/WendyOne-Regular.ttf')
+
+@font-face
+	font-family: 'Gaegu', cursive
+	src: local('../fonts/Gaegu/Gaegu-Regular.ttf')
+
+
+
+$main: #11749E
+$white: #fff
+$lightGrey: #F5F5F5
+$grey: #e2e2e2
+$darkGrey: #606062
+$dark: #222222
+$lightBlue: #2e85aa
+$facebook: #3B5998
+$twitter: #1EA1F3
+$skype: #01AEF2
+$linked-in: #01AEF2
+
+
+p,h1,h2,h3,h4,h5,h6
+	cursor: default
+
+body, html
+	padding: 0
+	margin: 0
+
+.pointer
+	opacity: 0
+	width: 60px
+	height: 60px
+	background-color: $dark
+	position: fixed
+	bottom: 20px
+	right: 20px
+	border-radius: 10%
+	cursor: pointer
+	z-index: 1000
+	span
+		&:before
+			content: ''
+			position: absolute
+			display: block
+			width: 30px
+			height: 5px
+			background-color: $lightBlue
+			border-radius: 10%
+			transform: rotate(40deg) translate(-15%,25%)
+			top: 50%
+			left: 50%
+		&:after
+			content: ''
+			position: absolute
+			display: block
+			width: 30px
+			height: 5px
+			background-color: $lightBlue
+			border-radius: 10%
+			transform: rotate(-40deg) translate(15%,25%)
+			top: 50%
+			right: 50%
+	&:hover
+		background-color: $main
+		span
+			&:before,
+			&:after
+				background-color: $white
+
+
+/*.main_wrap
+	z-index: -3
+	visibility: hidden
+
+.main
+	//z-index: -1
+	//position: fixed
+	//top: 0
+	//left: 0
+	position: relative
+	height: 100vh
+	background-image: url('../img/top_bg.jpg')
+	background-size: cover
+	header
+		height: 100px
+		.main_logo
+			height: 100px
+			p
+				font-family: 'Wendy One', sans-serif
+				text-align: center
+				text-transform: uppercase
+				font-size: 30px
+				line-height: 60px
+				margin: 0
+				color: $white
+				display: block
+				height: 60px
+				width: 60px
+				background-color: $main
+				box-shadow: 10px 10px $grey
+				position: relative
+				top: 50%
+				transform: translate(0 ,-50%)
+			@media screen and (max-width: 767.98px)
+				position: absolute
+				top: 20px
+				left: 20px
+				height: 60px
+		nav
+			height: 100px
+			ul
+				padding: 0
+				margin: 0
+				list-style-type: none
+				width: 100%
+				text-align: center
+				display: flex
+				justify-content: space-between
+				li
+					padding-top: 20px
+					border-bottom: 3px solid rgba(0,0,0,0)
+					transition: border-bottom-color .3s
+					&:hover
+						border-bottom: 3px solid $main
+					a
+						font-family: 'Wendy One', sans-serif
+						padding: 5px
+						display: inline-block
+						text-decoration: none
+						font-size: 20px
+						line-height: 60px
+						color: $white
+			@media screen and (max-width: 991.98px)
+				a
+					font-size: 16px
+					line-height: 50px
+		.main_social
+			display: flex
+			justify-content: space-between
+			text-align: center
+			a
+				width: 100%
+				display: inline-flex
+				font-size: 22px
+				color: $lightGrey
+				text-decoration: none
+				align-items: center
+				transition: color .5s
+				transform: translateY(5%)
+				&:hover
+					&:nth-child(1)
+						color: $facebook
+					&:nth-child(2)
+						color: $twitter
+					&:nth-child(3)
+						color: $skype
+					&:nth-child(4)
+						color: $linked-in
+		.main_hamburger
+			display: none
+			cursor: pointer
+			height: 60px
+			width: 60px
+			background-color: $main
+			position: absolute
+			top: 20px
+			right: 20px
+			border: none
+			transition: width .25s
+			.main_hamburger-inner-wrap
+				position: absolute
+				display: block
+				width: 40px
+				height: 33px
+				top: 50%
+				right: 50%
+				transform: translate(50%, -50%)
+				.main_hamburger-inner
+					background-color: $white
+					top: 50%
+					width: 40px
+					height: 3px
+					display: block
+					margin-top: 15px
+					border-radius: 10%
+					&:before
+						position: absolute
+						content: " "
+						height: 3px
+						width: 40px
+						display: block
+						background-color: $white
+						top: 0
+						border-radius: 10%
+
+					&:after
+						position: absolute
+						content: " "
+						height: 3px
+						width: 40px
+						display: block
+						background-color: $white
+						bottom: 0
+						border-radius: 10%
+
+		.main_hamburger-inner-animate
+			animation: hamburgerAnimation .5s forwards
+			&:before
+				animation: hamburgerAnimationBefore .5s forwards
+			&:after
+				animation: hamburgerAnimationAfter .5s forwards
+		@media screen and (max-width: 991.98px)
+			.main_social
+				position: absolute
+				display: inline
+				top: 15%
+				right: 10px
+				width: 40px
+				z-index: 2
+				text-align: right
+		@media screen and (max-width: 767.98px)
+			nav
+				display: none
+				ul
+					height: 0
+					transition: height .5s .5s
+			.main_social
+				display: none
+			.main_hamburger
+				display: block
+			.main_nav_open
+				padding: 0
+				display: block
+				position: absolute
+				top: 80px
+				right: 20px
+				z-index: 2
+				width: 120px
+				animation: fadeInUp .5s forwards
+				ul
+					background-color: $main
+					width: 100%
+					display: block
+					height: 260px
+					li
+						padding-top: 5px
+						display: block
+						a
+							display: block
+							font-size: 20px
+							line-height: 25px
+							&:hover,
+							&:focus
+								background-color: $lightBlue
+
+
+@keyframes fadeInUp
+	from
+		opacity: 0
+		-webkit-transform: translate3d(0, 100%, 0)
+		transform: translate3d(0, 100%, 0)
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+
+
+
+
+@keyframes hamburgerAnimation
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(270deg)
+
+@keyframes hamburgerAnimationBefore
+	0%
+		transform: rotate(0deg)
+		top: 0
+	100%
+		transform: rotate(225deg)
+		width: 16px
+		top: 5px
+		left: -3px
+
+@keyframes hamburgerAnimationAfter
+	0%
+		transform: rotate(0deg)
+		bottom: 0
+	100%
+		transform: rotate(315deg)
+		width: 16px
+		bottom: 5px
+		left: -3px
+
+
+
+
+
+
+
+
+.main_body
+	text-align: center
+	height: calc(100vh - 100px)
+	position: relative
+	h1
+		font-family: 'Merriweather Sans', sans-serif
+		text-transform: uppercase
+		font-size: 100px
+		color: $lightGrey
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -150%)
+		@media screen and (max-width: 767.98px)
+			font-size: 60px
+
+
+	span
+		font-family: 'Wendy One', sans-serif
+		font-size: 13px
+		color: $lightGrey
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		bottom: 103px
+	a
+		display: block
+		border: 1px solid $lightGrey
+		border-radius: 50%
+		height: 63px
+		width: 63px
+		margin: 20px 0
+		position: absolute
+		bottom: 0
+		left: 50%
+		transform: translateX(-50%)
+		&:hover
+			border: 1px solid $main
+			&:before
+				animation: arrowScroll 1.25s infinite
+			&:after
+				content: ''
+				animation: arrowScroll 1.25s infinite
+		&:before,
+		&:after
+			content: ''
+			display: block
+			position: relative
+			height: 15px
+			width: 15px
+			transform: rotate(45deg) translate(0,75%)
+			border-bottom: 3px solid $lightGrey
+			border-right: 3px solid $lightGrey
+			top: 20%
+			left: 52%
+		&:after
+			content: none
+
+@keyframes arrowScroll
+	0%
+		top: -10%
+		opacity: 1
+	100%
+		top: 20%
+		opacity: .0
+
+
+
+.about
+	min-height: 100vh
+	text-align: center
+	background-color: $main
+	.about_head
+		position: relative
+		font-family: 'Merriweather Sans', sans-serif
+		p
+			width: 100%
+			font-size: 38px
+			text-transform: uppercase
+			color: $white
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			margin: 0
+		span
+			text-transform: uppercase
+			font-size: 250px
+			margin: 0 auto
+			color: $lightBlue
+			font-weight: 700
+
+
+	.about_feature
+		text-align: center
+		i
+			font-size: 33px
+			color: $white
+			height: 135px
+			width: 135px
+			border-radius: 50%
+			background-color: $lightBlue
+			line-height: 135px
+			transition: color .5s, background-color .5s
+			&:hover
+				color: $main
+				background-color: $white
+		p
+			color: $white
+			&:nth-child(even)
+				font-family: 'Merriweather Sans', sans-serif
+				font-size: 18px
+				margin: 23px
+			&:nth-child(odd)
+				font-family: 'Gaegu', cursive
+				font-size: 15px
+	.about_gallery
+		text-align: left
+		.about_gallery_row_1
+			background-color: $dark
+			.about_gallery_text
+				p
+					font-family: 'Gaegu', cursive
+					color: $white
+					font-size: 15px
+					&:nth-child(1)
+						font-family: 'Wendy One', sans-serif
+						font-size: 13px
+				h3
+					font-family: 'Merriweather Sans', sans-serif
+					color: $white
+					font-size: 25px
+		.about_gallery_row_2
+			background-color: $lightGrey
+			.about_gallery_text
+				p
+					font-family: 'Gaegu', cursive
+					color: $dark
+					font-size: 15px
+					&:nth-child(1)
+						font-family: 'Wendy One', sans-serif
+						font-size: 13px
+				h3
+					font-family: 'Merriweather Sans', sans-serif
+					color: $dark
+					font-size: 25px
+		img
+			width: 100%
+			display: block
+	.about_animation_1,
+	.about_animation_2,
+	.about_animation_3,
+	.about_animation_4
+		visibility: hidden
+	.about_bounce_1
+		animation: fadeInRight .5s .85s forwards
+	.about_bounce_2
+		animation: fadeInRight .5s .6s forwards
+	.about_bounce_3
+		animation: fadeInLeft .5s .6s forwards
+	.about_bounce_4
+		animation: fadeInLeft .5s .85s forwards
+
+
+@keyframes fadeInLeft
+	from
+		opacity: 0
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+		visibility: visible
+
+
+@keyframes fadeInRight
+	from
+		opacity: 0
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+		visibility: visible
+
+
+
+.blog
+	background-color: $white
+	text-align: center
+	.blog_header
+		position: relative
+		p
+			font-family: 'Merriweather Sans', sans-serif
+			font-size: 38px
+			text-transform: uppercase
+			position: absolute
+			margin: 0 auto
+			top: 47%
+			left: 50%
+			transform: translate(-50%, -50%)
+		span
+			font-family: 'Merriweather Sans', sans-serif
+			text-transform: uppercase
+			font-size: 250px
+			color: $grey
+			padding: 0
+			margin: 0
+			line-height: .8
+			font-weight: 700
+
+	p
+		font-family: 'Merriweather Sans', sans-serif
+		color: $dark
+		font-size: 30px
+	.blog_section
+		img
+			width: 95%
+			display: block
+			transition: scale .5s
+			&:hover
+				box-shadow: 0 0 50px 5px $dark
+
+
+		h3
+			font-family: 'Merriweather Sans', sans-serif
+			text-transform: uppercase
+			font-size: 18px
+			color: $main
+			padding-top: 20px
+		p
+			font-family: 'Gaegu', cursive
+			font-size: 15px
+			color: $dark
+			width: 95%
+
+
+.quickAction
+	background-color: $main
+	position: relative
+	i
+		padding: 15px 0
+		font-size: 45px
+		color: $white
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%,-50%)
+	p
+		font-family: 'Gaegu', cursive
+		color: $white
+		font-size: 15px
+
+.key
+	background-image: url('../img/key_bg.jpg')
+	text-align: center
+	h5
+		font-family: 'Merriweather Sans', sans-serif
+		font-size: 25px
+		color: $white
+	p
+		font-family: 'Gaegu', cursive
+		font-size: 15px
+		color: $white
+		padding-bottom: 30px
+
+	a
+		font-family: 'Wendy One', sans-serif
+		text-decoration: none
+		padding: 10px 20px 10px 20px
+		margin: 10px 0
+		color: $white
+		display: inline-block
+		background-color: $main
+		text-transform: uppercase
+		transition: width .5s
+		width: 75%
+		border: 3px solid rgba(0,0,0,0)
+		&:hover
+			border: 3px solid
+
+
+	img
+		display: block
+		width: 100%
+		&:hover
+			animation: phoneAnim .5s
+
+@keyframes phoneAnim
+	0%,100%
+		transform: rotate(0deg)
+	33%
+		transform: rotate(5deg)
+	66%
+		transform: rotate(-5deg)
+
+
+.team
+	text-align: center
+	.team_header
+		position: relative
+		font-family: 'Merriweather Sans', sans-serif
+		p
+			font-size: 38px
+			text-transform: uppercase
+			position: absolute
+			margin: 0 auto
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+		span
+			text-transform: uppercase
+			font-size: 250px
+			color: $grey
+			padding: 0
+			margin: 0
+			line-height: .8
+			font-weight: 700
+
+	p
+		font-family: 'Merriweather Sans', sans-serif
+		font-size: 30px
+		color: $dark
+	.team_person
+		text-align: center
+		position: relative
+		overflow: hidden
+		.team_person_descr
+			background-color: $white
+			position: absolute
+			bottom: -70px
+			left: 50%
+			transform: translateX(-50%)
+			width: 80%
+			transition: bottom 1s
+			p:nth-of-type(odd)
+				font-family: 'Merriweather Sans', sans-serif
+				text-transform: uppercase
+				color: $main
+				font-size: 20px
+				margin: 10px 0
+			p:nth-of-type(even)
+				font-family: 'Wendy One', sans-serif
+				color: $dark
+				font-size: 15px
+				margin: 0
+		&:hover
+			.team_person_descr
+				bottom: 0
+	img
+		display: block
+		width: 100%
+
+
+
+.contact
+	background-image: url('../img/contact_bg.jpg')
+	text-align: center
+	.contact_header
+		font-family: 'Merriweather Sans', sans-serif
+		position: relative
+		text-align: center
+		p
+			width: 100%
+			color: $white
+			font-size: 30px
+			text-transform: uppercase
+			position: absolute
+			margin: 0 auto
+			top: 42%
+			left: 50%
+			transform: translate(-50%, -50%)
+		span
+			text-transform: uppercase
+			font-size: 250px
+			color: $darkGrey
+			padding: 0
+			margin: 0
+			line-height: .8
+			font-weight: 700
+	form
+		margin: 0 auto
+		width: 90%
+		font-size: 15px
+		input
+			margin: 2.25%
+			padding: 15px
+			width: 30%
+			background-color: rgba(0,0,0,0)
+			color: $white
+			&:nth-of-type(1)
+				margin: 2.25% 2.25% 2.25% 0
+			&:nth-of-type(3)
+				margin: 2.25% 0 2.25% 2.25%
+			@media screen and (max-width: 991.98px)
+				margin: 2.5% 0
+				width: 100%
+				&:nth-of-type(1)
+					margin: 2.5% 0
+				&:nth-of-type(3)
+					margin: 2.5% 0
+		textarea
+			width: 100%
+			padding: 15px
+			background-color: rgba(0,0,0,0)
+			color: $white
+			resize: none
+			margin: 2.5% 0 2.5% 0
+
+#submit
+	font-family: 'Wendy One', sans-serif
+	font-size: 24px
+	text-transform: uppercase
+	line-height: 30px
+	width: 25%
+	color: $white
+	background-color: $main
+	text-decoration: none
+	border: 3px solid rgba(0,0,0,0)
+	cursor: pointer
+	&:hover
+		border: 3px solid
+	@media screen and (max-width: 991.98px)
+		width: 100%
+
+
+.map
+	height: 450px
+	width: 100%
+	iframe
+		width: 100%
+
+
+
+footer
+	font-family: 'Merriweather Sans', sans-serif
+	background-color: $dark
+	min-height: 100px
+	position: relative
+	p
+		font-size: 18px
+		color: $white
+		display: inline
+		position: absolute
+		top: 50%
+		left: 5%
+		transform: translateY(-50%)
+		margin: 0
+	.footer_socials
+		position: absolute
+		top: 50%
+		right: 100px
+		transform: translateY(-50%)
+		a
+			display: inline
+			text-decoration: none
+			color: $white
+			font-size: 18px
+			&:hover
+				&:nth-child(1)
+					color: $facebook
+				&:nth-child(2)
+					color: $twitter
+				&:nth-child(3)
+					color: $skype
+				&:nth-child(4)
+					color: $linked-in
+	@media screen and (max-width: 575.98px)
+		.footer_socials,
+		p
+			left: 50%
+			transform: translate(-50%, 50%)
+			right: auto
+			text-align: center
+			margin-top: -20px
+
+.h100
+	min-height: 100px
+	@media screen and (max-width: 575.98px)
+		min-height: 70px
+
+
