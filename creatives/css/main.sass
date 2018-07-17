@@ -94,24 +94,6 @@ body, html
 				a
 					font-size: 16px
 					line-height: 50px
-		.main_nav_open
-			display: block
-			position: absolute
-			top: 80px
-			right: 20px
-			width: 100px
-
-			ul
-				width: 100px
-				display: block
-				height: 230px
-				li
-					padding-top: 5px
-					display: block
-					a
-						display: block
-						font-size: 16px
-						line-height: 20px
 		.main_social
 			display: flex
 			justify-content: space-between
@@ -143,31 +125,45 @@ body, html
 			position: absolute
 			top: 20px
 			right: 20px
-			.main_hamburger-inner
-				background-color: $white
+			border: none
+			transition: width .25s
+			.main_hamburger-inner-wrap
+				position: absolute
 				display: block
 				width: 40px
-				height: 3px
-				position: absolute
+				height: 33px
 				top: 50%
 				right: 50%
-				transform: translateX(50%)
-				&:before
-					position: absolute
-					content: " "
-					height: 3px
-					width: 40px
-					display: block
+				transform: translate(50%, -50%)
+				.main_hamburger-inner
 					background-color: $white
-					top: 12px
-				&:after
-					position: absolute
-					content: " "
-					height: 3px
+					top: 50%
 					width: 40px
+					height: 3px
 					display: block
-					background-color: $white
-					bottom: 12px
+					margin-top: 15px
+					&:before
+						position: absolute
+						content: " "
+						height: 3px
+						width: 40px
+						display: block
+						background-color: $white
+						top: 0
+					&:after
+						position: absolute
+						content: " "
+						height: 3px
+						width: 40px
+						display: block
+						background-color: $white
+						bottom: 0
+		.main_hamburger-inner-animate
+			animation: hamburgerAnimation .5s forwards
+			&:before
+				animation: hamburgerAnimationBefore .5s forwards
+			&:after
+				animation: hamburgerAnimationAfter .5s forwards
 		@media screen and (max-width: 991.98px)
 			.main_social
 				position: absolute
@@ -180,14 +176,86 @@ body, html
 		@media screen and (max-width: 767.98px)
 			nav
 				display: none
+				ul
+					height: 0
+					transition: height .5s .5s
 			.main_social
 				display: none
 			.main_hamburger
 				display: block
+			.main_nav_open
+				padding: 0
+				display: block
+				position: absolute
+				top: 80px
+				right: 20px
+				z-index: 2
+				width: 120px
+				animation: fadeInUp .5s forwards
+				ul
+					background-color: $main
+					width: 100%
+					display: block
+					height: 260px
+					li
+						padding-top: 5px
+						display: block
+						a
+							display: block
+							font-size: 20px
+							line-height: 25px
+							&:hover,
+							&:focus
+								background-color: $lightBlue
+
+
+@keyframes fadeInUp
+	from
+		opacity: 0
+		-webkit-transform: translate3d(0, 100%, 0)
+		transform: translate3d(0, 100%, 0)
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
 
 
 
-	.main_body
+
+@keyframes hamburgerAnimation
+	0%
+		transform: rotate(0deg)
+	100%
+		transform: rotate(270deg)
+
+@keyframes hamburgerAnimationBefore
+	0%
+		transform: rotate(0deg)
+		top: 0
+	100%
+		transform: rotate(225deg)
+		width: 16px
+		top: 5px
+		left: -3px
+
+@keyframes hamburgerAnimationAfter
+	0%
+		transform: rotate(0deg)
+		bottom: 0
+	100%
+		transform: rotate(315deg)
+		width: 16px
+		bottom: 5px
+		left: -3px
+
+
+
+
+
+
+
+
+.main_body
 		text-align: center
 		h1
 			font-family: 'Merriweather Sans', sans-serif

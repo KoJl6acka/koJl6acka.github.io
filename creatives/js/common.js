@@ -1,29 +1,28 @@
 $(function(){
 
-    var $alertItem = $();
-    var $button = $();
 
-    $button.on('click', function(){
-       var handler = function(){
-           $alertItem.css('display', 'none');
-           $alertItem.removeClass('main_nav_open');
-           $alertItem.off('transitionend', handler);
-       };
-
-
-        $alertItem.addClass('main_nav_open');
-        $alertItem.on('transitionend', handler);
+    $('.main_hamburger').on('click', function(){
+        if($('.main_hamburger').css('width') == '60px'){
+            $('.main_hamburger').css('width', '120');
+            $('.main_hamburger-inner').addClass('main_hamburger-inner-animate');
+            $('nav').addClass('main_nav_open');
+        }
+        else{
+            $('.main_hamburger').css('width', '60');
+            $('.main_hamburger-inner').removeClass('main_hamburger-inner-animate');
+            $('nav').removeClass('main_nav_open');
 
 
+        }
 
     });
 
-function raf(fn){
-    window.requestAnimationFrame(function(){
+    function raf(fn){
         window.requestAnimationFrame(function(){
-            fn();
+            window.requestAnimationFrame(function(){
+                fn();
+            })
         })
-    })
-}
+    }
 
 });
