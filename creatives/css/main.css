@@ -194,6 +194,44 @@ body, html {
   padding: 0;
   margin: 0; }
 
+.pointer {
+  opacity: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #222222;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 10%;
+  cursor: pointer;
+  z-index: 1000; }
+  .pointer span:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #2e85aa;
+    border-radius: 10%;
+    transform: rotate(40deg) translate(-15%, 25%);
+    top: 50%;
+    left: 50%; }
+  .pointer span:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #2e85aa;
+    border-radius: 10%;
+    transform: rotate(-40deg) translate(15%, 25%);
+    top: 50%;
+    right: 50%; }
+  .pointer:hover {
+    background-color: #11749E; }
+    .pointer:hover span:before, .pointer:hover span:after {
+      background-color: #fff; }
+
 .main {
   background-image: url("../img/top_bg.jpg");
   background-size: cover; }
@@ -401,7 +439,7 @@ body, html {
     font-family: "Merriweather Sans", sans-serif;
     text-transform: uppercase;
     font-size: 100px;
-    line-height: 300px;
+    line-height: 350px;
     margin: 0;
     color: #F5F5F5; }
     @media screen and (max-width: 767.98px) {
@@ -522,7 +560,40 @@ body, html {
     .about .about_gallery img {
       width: 100%;
       display: block; }
+  .about .about_animation_1,
+  .about .about_animation_2,
+  .about .about_animation_3,
+  .about .about_animation_4 {
+    visibility: hidden; }
+  .about .about_bounce_1 {
+    animation: fadeInRight 0.5s 0.85s forwards; }
+  .about .about_bounce_2 {
+    animation: fadeInRight 0.5s 0.6s forwards; }
+  .about .about_bounce_3 {
+    animation: fadeInLeft 0.5s 0.6s forwards; }
+  .about .about_bounce_4 {
+    animation: fadeInLeft 0.5s 0.85s forwards; }
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible; } }
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible; } }
 .blog {
   background-color: #fff;
   text-align: center; }

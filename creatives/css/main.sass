@@ -34,8 +34,46 @@ body, html
 	padding: 0
 	margin: 0
 
-
-
+.pointer
+	opacity: 0
+	width: 60px
+	height: 60px
+	background-color: $dark
+	position: fixed
+	bottom: 20px
+	right: 20px
+	border-radius: 10%
+	cursor: pointer
+	z-index: 1000
+	span
+		&:before
+			content: ''
+			position: absolute
+			display: block
+			width: 30px
+			height: 5px
+			background-color: $lightBlue
+			border-radius: 10%
+			transform: rotate(40deg) translate(-15%,25%)
+			top: 50%
+			left: 50%
+		&:after
+			content: ''
+			position: absolute
+			display: block
+			width: 30px
+			height: 5px
+			background-color: $lightBlue
+			border-radius: 10%
+			transform: rotate(-40deg) translate(15%,25%)
+			top: 50%
+			right: 50%
+	&:hover
+		background-color: $main
+		span
+			&:before,
+			&:after
+				background-color: $white
 
 
 .main
@@ -261,7 +299,7 @@ body, html
 			font-family: 'Merriweather Sans', sans-serif
 			text-transform: uppercase
 			font-size: 100px
-			line-height: 300px
+			line-height: 350px
 			margin: 0
 			color: $lightGrey
 			@media screen and (max-width: 767.98px)
@@ -391,6 +429,49 @@ body, html
 		img
 			width: 100%
 			display: block
+	.about_animation_1,
+	.about_animation_2,
+	.about_animation_3,
+	.about_animation_4
+		visibility: hidden
+	.about_bounce_1
+		animation: fadeInRight .5s .85s forwards
+	.about_bounce_2
+		animation: fadeInRight .5s .6s forwards
+	.about_bounce_3
+		animation: fadeInLeft .5s .6s forwards
+	.about_bounce_4
+		animation: fadeInLeft .5s .85s forwards
+
+
+@keyframes fadeInLeft
+	from
+		opacity: 0
+		-webkit-transform: translate3d(-100%, 0, 0)
+		transform: translate3d(-100%, 0, 0)
+
+
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+		visibility: visible
+
+
+@keyframes fadeInRight
+	from
+		opacity: 0
+		-webkit-transform: translate3d(100%, 0, 0)
+		transform: translate3d(100%, 0, 0)
+
+
+	to
+		opacity: 1
+		-webkit-transform: translate3d(0, 0, 0)
+		transform: translate3d(0, 0, 0)
+		visibility: visible
+
+
 
 .blog
 	background-color: $white
