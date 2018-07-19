@@ -1,0 +1,145 @@
+$height : 40px
+
+body, html
+	padding: 0
+	margin: 0
+	background-color: #222
+	.pacman
+		display: block
+		width: $height
+		height: $height
+		border-radius: 50%
+		background-color: #ffe600
+		top: $height * 5
+		left: $height * 11
+		position: absolute
+		overflow: hidden
+		z-index: 2
+		//transition: top .1s, left .1s, bottom .1s, right .1s
+		&:before
+			content: ""
+			display: block
+			position: absolute
+			left: $height * 0.4
+			top: $height * 0.25
+			width: $height * 0.1
+			height: $height * 0.1
+			border-radius: 50%
+			background-color: black
+
+		&:after
+			content: ""
+			display: block
+			position: absolute
+			box-sizing: border-box
+			top: -$height / 2
+			left: -$height / 2
+			width: 0
+			height: 0
+			border: $height solid transparent
+			border-right: $height solid #fff
+			animation: om-nom-nom .3s linear alternate infinite
+
+
+
+	.pacman_left
+		&:before
+			left: auto
+			right: $height * 0.4
+		&:after
+			border: $height solid transparent
+			border-left: $height solid #fff
+
+	.pacman_top
+		&:before
+			left: auto
+			right: $height * 0.25
+			top: auto
+			bottom: $height * 0.4
+		&:after
+			border: $height solid transparent
+			border-top: $height solid #fff
+			animation: om-nom-nom_top .3s linear alternate infinite
+
+	.pacman_bottom
+		&:before
+			left: auto
+			right: $height * 0.25
+			top: $height * 0.4
+		&:after
+			border: $height solid transparent
+			border-bottom: $height solid #fff
+			animation: om-nom-nom_top .3s linear alternate infinite
+
+@keyframes om-nom-nom
+	0%
+		border-top: $height solid transparent
+		border-bottom: $height solid transparent
+		top: -$height / 2
+
+	100%
+		border-top: 0 solid transparent
+		border-bottom: 0 solid transparent
+		top: 50%
+
+@keyframes om-nom-nom_top
+	0%
+		border-left: $height solid transparent
+		border-right: $height solid transparent
+		left: -$height / 2
+
+	100%
+		border-left: 0 solid transparent
+		border-right: 0 solid transparent
+		left: 50%
+
+
+.box
+	display: block
+	float: left
+	height: $height
+	width: $height
+	box-sizing: border-box
+	background-color: #ff5b3d
+	border: 5px solid #1e41ff
+
+.ground
+	display: block
+	float: left
+	height: $height
+	width: $height
+	background-color: #222
+
+.coin
+	display: block
+	float: left
+	height: $height
+	width: $height
+	background-color: #222
+	position: relative
+	&:before
+		content: ""
+		position: absolute
+		display: block
+		box-sizing: border-box
+		background-color: #f2ff68
+		height: $height * 0.4
+		width:  $height * 0.2
+		border-radius: 50%
+		border: $height / 20 solid #ff9600
+		top: $height * 0.15
+		right: $height * 0.3
+		animation: coinAnimation 2s linear infinite
+
+@keyframes coinAnimation
+	0%,
+	100%
+		top: $height * 0.2
+	50%
+		top: $height * 0.4
+
+#world
+	margin: 0 auto
+	height: $height * 11
+	width: $height * 23
+	position: relative
