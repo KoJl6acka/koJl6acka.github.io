@@ -4,23 +4,25 @@ body, html {
   background-color: #222; }
   body .pacman, html .pacman {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #ffe600;
-    top: 200px;
-    left: 440px;
+    top: 150px;
+    left: 330px;
     position: absolute;
     overflow: hidden;
+    box-sizing: border-box;
+    border: 2px solid #222;
     z-index: 2; }
     body .pacman:before, html .pacman:before {
       content: "";
       display: block;
       position: absolute;
-      left: 16px;
-      top: 10px;
-      width: 4px;
-      height: 4px;
+      left: 12px;
+      top: 7.5px;
+      width: 3px;
+      height: 3px;
       border-radius: 50%;
       background-color: black; }
     body .pacman:after, html .pacman:after {
@@ -28,51 +30,52 @@ body, html {
       display: block;
       position: absolute;
       box-sizing: border-box;
-      top: -20px;
-      left: -20px;
+      top: -15px;
+      left: -15px;
       width: 0;
       height: 0;
-      border: 40px solid transparent;
-      border-right: 40px solid #fff;
+      border: 30px solid transparent;
+      border-right: 30px solid #222;
+      z-index: 4;
       animation: om-nom-nom 0.3s linear alternate infinite; }
   body .pacman_left:before, html .pacman_left:before {
     left: auto;
-    right: 16px; }
+    right: 12px; }
   body .pacman_left:after, html .pacman_left:after {
-    border: 40px solid transparent;
-    border-left: 40px solid #fff; }
+    border: 30px solid transparent;
+    border-left: 30px solid #222; }
   body .pacman_top:before, html .pacman_top:before {
     left: auto;
-    right: 10px;
+    right: 7.5px;
     top: auto;
-    bottom: 16px; }
+    bottom: 12px; }
   body .pacman_top:after, html .pacman_top:after {
-    border: 40px solid transparent;
-    border-top: 40px solid #fff;
+    border: 30px solid transparent;
+    border-top: 30px solid #222;
     animation: om-nom-nom_top 0.3s linear alternate infinite; }
   body .pacman_bottom:before, html .pacman_bottom:before {
     left: auto;
-    right: 10px;
-    top: 16px; }
+    right: 7.5px;
+    top: 12px; }
   body .pacman_bottom:after, html .pacman_bottom:after {
-    border: 40px solid transparent;
-    border-bottom: 40px solid #fff;
+    border: 30px solid transparent;
+    border-bottom: 30px solid #222;
     animation: om-nom-nom_top 0.3s linear alternate infinite; }
 
 @keyframes om-nom-nom {
   0% {
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    top: -20px; }
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    top: -15px; }
   100% {
     border-top: 0 solid transparent;
     border-bottom: 0 solid transparent;
     top: 50%; } }
 @keyframes om-nom-nom_top {
   0% {
-    border-left: 40px solid transparent;
-    border-right: 40px solid transparent;
-    left: -20px; }
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    left: -15px; }
   100% {
     border-left: 0 solid transparent;
     border-right: 0 solid transparent;
@@ -80,8 +83,8 @@ body, html {
 .box {
   display: block;
   float: left;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   box-sizing: border-box;
   background-color: #ff5b3d;
   border: 5px solid #1e41ff; }
@@ -89,15 +92,15 @@ body, html {
 .ground {
   display: block;
   float: left;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-color: #222; }
 
 .coin {
   display: block;
   float: left;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   background-color: #222;
   position: relative; }
   .coin:before {
@@ -106,24 +109,24 @@ body, html {
     display: block;
     box-sizing: border-box;
     background-color: #f2ff68;
-    height: 16px;
-    width: 8px;
+    height: 12px;
+    width: 6px;
     border-radius: 50%;
-    border: 2px solid #ff9600;
-    top: 6px;
-    right: 12px;
+    border: 1.5px solid #ff9600;
+    top: 4.5px;
+    right: 9px;
     animation: coinAnimation 2s linear infinite; }
 
 @keyframes coinAnimation {
   0%,
 100% {
-    top: 8px; }
+    top: 6px; }
   50% {
-    top: 16px; } }
+    top: 12px; } }
 #world {
   margin: 0 auto;
-  height: 440px;
-  width: 920px;
+  height: 330px;
+  width: 690px;
   position: relative; }
 
 /*# sourceMappingURL=main.css.map */

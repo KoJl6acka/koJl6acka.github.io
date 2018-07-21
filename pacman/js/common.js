@@ -4,7 +4,8 @@ window.onload = function() {
    2 - coin
    3 - ground
  */
-
+    var score = 0;
+    var offset;
     var map = [
         [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
         [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
@@ -18,12 +19,6 @@ window.onload = function() {
         [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
         [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
     ];
-
-    var pacman = {
-        x: 11,
-        y: 5
-    };
-
 
     function createWorld() {
         document.getElementById('world').innerHTML = '';
@@ -41,18 +36,6 @@ window.onload = function() {
                 if(map[y][x] === 3){
                     elementClass = 'ground';
                 }
-                /*if(map[y][x] === 5){
-                    document.getElementById('world').innerHTML += '<div class="pacman"></div>';
-                }
-                if(map[y][x] === 6){
-                    document.getElementById('world').innerHTML += '<div class="pacman pacman_left"></div>';
-                }
-                if(map[y][x] === 7){
-                    document.getElementById('world').innerHTML += '<div class="pacman pacman_top"></div>';
-                }
-                if(map[y][x] === 8){
-                    document.getElementById('world').innerHTML += '<div class="pacman pacman_bottom"></div>';
-                }*/
                 var div = document.createElement('div');
                 div.id = 'cell' + x + y;
                 div.classList.add(elementClass);
@@ -62,72 +45,67 @@ window.onload = function() {
         document.getElementById('world').innerHTML += '<div class="pacman"></div>';
     }
 
+    var pacman = {
+        X : 11,
+        Y : 5,
+        step : 30,
+        stepX : 0,
+        stepY : 0,
+        PACMAN : null,
+        move : function(x,y) {
+            pacman.stepX = x;
+            pacman.stepY = y;
+            pacman.PACMAN = document.getElementsByClassName('pacman')[0];
+            pacman.PACMAN.classList.remove('pacman_bottom', 'pacman_top', 'pacman_left');
 
+            if(pacman.stepX !== 0){
+                if(map[pacman.Y][pacman.X + pacman.stepX] !== 1){
+                    offset = pacman.PACMAN.offsetLeft + pacman.step * pacman.stepX;
+                    pacman.X = offset / pacman.step;
+                    offset = offset + 'px';
+                    pacman.PACMAN.style.left = offset;
+                    if(pacman.stepX === -1)
+                        pacman.PACMAN.classList.add('pacman_left');
+                }
 
-    var height = 40;
+            }else if(pacman.stepY !== 0){
+                if(map[pacman.Y + pacman.stepY][pacman.X] !== 1){
+                    offset = pacman.PACMAN.offsetTop + pacman.step * pacman.stepY;
+                    pacman.Y = offset / pacman.step;
+                    offset = offset + 'px';
+                    pacman.PACMAN.style.top = offset;
+                    if(pacman.stepY === -1)
+                        pacman.PACMAN.classList.add('pacman_top');
+                    else    pacman.PACMAN.classList.add('pacman_bottom');
 
-    document.onkeydown = function(e) {
-        if (e.keyCode === 37){
-            var x = pacman.x;
-            if(map[pacman.y][x=x-1] !== 1){
-                document.getElementsByClassName('pacman')[0].classList.remove('pacman_bottom', 'pacman_top');
-                document.getElementsByClassName('pacman')[0].classList.add('pacman_left');
-                var offset = document.getElementsByClassName('pacman')[0].offsetLeft;
-                offset -= height;
-                offset = offset +'px';
-                document.getElementsByClassName('pacman')[0].style.left = offset;
-                document.getElementById('cell'+pacman.x+pacman.y).classList.remove('coin');
-                document.getElementById('cell'+pacman.x+pacman.y).classList.add('ground');
-                pacman.x--;
-                setTimeout(300);
+                }
             }
-        }
-        if (e.keyCode === 38){
-            var y = pacman.y;
-            if(map[y=y-1][pacman.x] !== 1) {
-                document.getElementsByClassName('pacman')[0].classList.remove('pacman_bottom', 'pacman_left');
-                document.getElementsByClassName('pacman')[0].classList.add('pacman_top');
-                var offset = document.getElementsByClassName('pacman')[0].offsetTop;
-                offset -= height;
-                offset = offset +'px';
-                document.getElementsByClassName('pacman')[0].style.top = offset;
-                document.getElementById('cell'+pacman.x+pacman.y).classList.remove('coin');
-                document.getElementById('cell'+pacman.x+pacman.y).classList.add('ground');
-                pacman.y--;
-                setTimeout(300);
-            }
-        }
-        if (e.keyCode === 39){
-            var x = pacman.x;
-            if(map[pacman.y][x=x+1] !== 1) {
-                document.getElementsByClassName('pacman')[0].classList.remove('pacman_bottom', 'pacman_top', 'pacman_left');
-                var offset = document.getElementsByClassName('pacman')[0].offsetLeft;
-                offset += height;
-                offset = offset +'px';
-                document.getElementsByClassName('pacman')[0].style.left = offset;
-                document.getElementById('cell'+pacman.x+pacman.y).classList.remove('coin');
-                document.getElementById('cell'+pacman.x+pacman.y).classList.add('ground');
-                pacman.x++;
-                setTimeout(300);
-            }
-        }
-        if (e.keyCode === 40){
-            var y = pacman.y;
-            if(map[y=y+1][pacman.x] !== 1) {
-                document.getElementsByClassName('pacman')[0].classList.remove('pacman_left', 'pacman_top');
-                document.getElementsByClassName('pacman')[0].classList.add('pacman_bottom');
-                var offset = document.getElementsByClassName('pacman')[0].offsetTop;
-                offset += height;
-                offset = offset +'px';
-                document.getElementsByClassName('pacman')[0].style.top = offset;
-                document.getElementById('cell'+pacman.x+pacman.y).classList.remove('coin');
-                document.getElementById('cell'+pacman.x+pacman.y).classList.add('ground');
-                pacman.y++;
-                console.log(1);
-                setTimeout(function(){console.log(2);}, 300);
+
+            if(document.getElementById('cell' + pacman.X + pacman.Y).classList.contains('coin')){
+                score += 10;
+                document.getElementById('cell' + pacman.X + pacman.Y).classList.remove('coin');
+                document.getElementById('cell' + pacman.X + pacman.Y).classList.add('ground');
             }
         }
     };
+
+
+    document.onkeydown = function(e) {
+        if (e.keyCode === 37){
+            pacman.move(-1,0);
+        }
+        if (e.keyCode === 38){
+            pacman.move(0,-1);
+        }
+        if (e.keyCode === 39){
+            pacman.move(1,0);
+        }
+        if (e.keyCode === 40){
+            pacman.move(0,1);
+        }
+        document.querySelector('h4 span').innerHTML = score;
+    };
+
     createWorld();
 
 };

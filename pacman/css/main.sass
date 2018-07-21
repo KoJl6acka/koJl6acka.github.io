@@ -1,4 +1,4 @@
-$height : 40px
+$height : 30px
 
 body, html
 	padding: 0
@@ -14,6 +14,8 @@ body, html
 		left: $height * 11
 		position: absolute
 		overflow: hidden
+		box-sizing: border-box
+		border: 2px solid #222
 		z-index: 2
 		//transition: top .1s, left .1s, bottom .1s, right .1s
 		&:before
@@ -37,7 +39,8 @@ body, html
 			width: 0
 			height: 0
 			border: $height solid transparent
-			border-right: $height solid #fff
+			border-right: $height solid #222
+			z-index: 4
 			animation: om-nom-nom .3s linear alternate infinite
 
 
@@ -48,7 +51,7 @@ body, html
 			right: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-left: $height solid #fff
+			border-left: $height solid #222
 
 	.pacman_top
 		&:before
@@ -58,7 +61,7 @@ body, html
 			bottom: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-top: $height solid #fff
+			border-top: $height solid #222
 			animation: om-nom-nom_top .3s linear alternate infinite
 
 	.pacman_bottom
@@ -68,13 +71,13 @@ body, html
 			top: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-bottom: $height solid #fff
+			border-bottom: $height solid #222
 			animation: om-nom-nom_top .3s linear alternate infinite
 
 @keyframes om-nom-nom
 	0%
-		border-top: $height solid transparent
-		border-bottom: $height solid transparent
+		border-top: $height  solid transparent
+		border-bottom: $height  solid transparent
 		top: -$height / 2
 
 	100%
