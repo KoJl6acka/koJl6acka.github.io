@@ -5,7 +5,7 @@ window.onload = function() {
    3 - ground
  */
     var score = 0;
-    var offset;
+    var pressed = false;
     var map = [
         [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
         [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
@@ -46,45 +46,88 @@ window.onload = function() {
     }
 
     var pacman = {
-        X : 11,
-        Y : 5,
-        step : 30,
-        stepX : 0,
-        stepY : 0,
+        X: 11,
+        Y: 5,
+        cell: 30,
+        fps: 3,
+        stepX: null,
+        stepY: null,
+        tryStepX : null,
+        tryStepY : null,
+        run : true,
         PACMAN : null,
-        move : function(x,y) {
-            pacman.stepX = x;
-            pacman.stepY = y;
-            pacman.PACMAN = document.getElementsByClassName('pacman')[0];
-            pacman.PACMAN.classList.remove('pacman_bottom', 'pacman_top', 'pacman_left');
+        move : function (x, y) {
+            if(pacman.run){
+                var offset, steps, timer;
+                pacman.run = false;
+                pacman.stepX = x;
+                pacman.stepY = y;
+                pacman.PACMAN = document.getElementsByClassName('pacman')[0];
+                pacman.PACMAN.classList.remove('pacman_bottom', 'pacman_top', 'pacman_left');
+                if (pacman.stepX !== 0) {
+                    if (map[pacman.Y + pacman.stepY][pacman.X] !== 1) {
+                        if (pacman.stepX === -1)
+                            pacman.PACMAN.classList.add('pacman_left');
 
-            if(pacman.stepX !== 0){
-                if(map[pacman.Y][pacman.X + pacman.stepX] !== 1){
-                    offset = pacman.PACMAN.offsetLeft + pacman.step * pacman.stepX;
-                    pacman.X = offset / pacman.step;
-                    offset = offset + 'px';
-                    pacman.PACMAN.style.left = offset;
-                    if(pacman.stepX === -1)
-                        pacman.PACMAN.classList.add('pacman_left');
+                        offset = pacman.PACMAN.offsetLeft;
+                        steps = pacman.cell / pacman.fps;
+                        timer = setInterval(function () {
+                            offset += pacman.fps * pacman.stepX;
+                            pacman.PACMAN.style.left = offset + 'px';
+                            steps--;
+                            if (steps === 0) {
+                                clearInterval(timer);
+                                pacman.X = offset / pacman.cell;
+                                pacman.run = true;
+                                if (map[pacman.Y + pacman.tryStepY][pacman.X + pacman.tryStepX] !== 1 && pacman.tryStepY !== null && pacman.tryStepX !== null) {
+                                    pacman.move(pacman.tryStepX, pacman.tryStepY);
+                                    pacman.tryStepY = null;
+                                    pacman.tryStepX = null;
+                                }
+                                if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
+                                    pacman.move(pacman.stepX, pacman.stepY);
+                                }
+                            }
+                        }, 30);
+                    }
+                } else if (pacman.stepY !== 0) {
+                    if (map[pacman.Y + pacman.stepY][pacman.X] !== 1) {
+                        if (pacman.stepY === -1)
+                            pacman.PACMAN.classList.add('pacman_top');
+                        else pacman.PACMAN.classList.add('pacman_bottom');
+
+                        offset = pacman.PACMAN.offsetTop;
+                        steps = pacman.cell / pacman.fps;
+                        timer = setInterval(function(){
+                            offset += pacman.fps * pacman.stepY;
+                            pacman.PACMAN.style.top = offset + 'px';
+                            steps --;
+                            if(steps === 0) {
+                                clearInterval(timer);
+                                pacman.Y = offset / pacman.cell;
+                                pacman.run = true;
+                                if (map[pacman.Y + pacman.tryStepY][pacman.X + pacman.tryStepX] !== 1 && pacman.tryStepY !== null && pacman.tryStepX !== null) {
+                                    pacman.move(pacman.tryStepX, pacman.tryStepY);
+                                    pacman.tryStepY = null;
+                                    pacman.tryStepX = null;
+                                }
+                                if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
+                                    pacman.move(pacman.stepX, pacman.stepY);
+                                }
+                            }
+                        }, 30);
+
+                    }
                 }
-
-            }else if(pacman.stepY !== 0){
-                if(map[pacman.Y + pacman.stepY][pacman.X] !== 1){
-                    offset = pacman.PACMAN.offsetTop + pacman.step * pacman.stepY;
-                    pacman.Y = offset / pacman.step;
-                    offset = offset + 'px';
-                    pacman.PACMAN.style.top = offset;
-                    if(pacman.stepY === -1)
-                        pacman.PACMAN.classList.add('pacman_top');
-                    else    pacman.PACMAN.classList.add('pacman_bottom');
-
-                }
+                pacman.eat();
             }
-
-            if(document.getElementById('cell' + pacman.X + pacman.Y).classList.contains('coin')){
+        },
+        eat : function(){
+            if (document.getElementById('cell' + pacman.X + pacman.Y).classList.contains('coin')) {
                 score += 10;
                 document.getElementById('cell' + pacman.X + pacman.Y).classList.remove('coin');
                 document.getElementById('cell' + pacman.X + pacman.Y).classList.add('ground');
+                document.querySelector('h4 span').innerHTML = score;
             }
         }
     };
@@ -92,18 +135,37 @@ window.onload = function() {
 
     document.onkeydown = function(e) {
         if (e.keyCode === 37){
-            pacman.move(-1,0);
+            if(pacman.run)
+                pacman.move(-1,0);
+            else{
+                pacman.tryStepX = -1;
+                pacman.tryStepY = 0;
+            }
         }
         if (e.keyCode === 38){
-            pacman.move(0,-1);
+            if(pacman.run)
+                pacman.move(0,-1);
+            else{
+                pacman.tryStepX = 0;
+                pacman.tryStepY = -1;
+            }
         }
         if (e.keyCode === 39){
-            pacman.move(1,0);
+            if(pacman.run)
+                pacman.move(1,0);
+            else{
+                pacman.tryStepX = 1;
+                pacman.tryStepY = 0;
+            }
         }
         if (e.keyCode === 40){
-            pacman.move(0,1);
+            if(pacman.run)
+                pacman.move(0,1);
+            else{
+                pacman.tryStepX = 0;
+                pacman.tryStepY = 1;
+            }
         }
-        document.querySelector('h4 span').innerHTML = score;
     };
 
     createWorld();
