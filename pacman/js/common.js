@@ -1,23 +1,33 @@
 window.onload = function () {
 
     /* 1 - box
-       2 - coin
-       3 - ground
+       2 - apple
+       3 - apple
+       4 - ghost
+
      */
     var score = 0;
-    //var pressed = false;
     var map = [
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1],
-        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1],
+        [1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1],
+        [1, 2, 2, 2, 2, 2, 1, 3, 3, 3, 3, 3, 3, 3, 1, 2, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 3, 1, 3, 3, 3, 1, 3, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 3, 1, 4, 3, 4, 1, 3, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 2, 2, 2, 2, 2, 3, 1, 4, 3, 4, 1, 3, 2, 2, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 3, 1, 1, 1, 1, 1, 3, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 3, 3, 3, 3, 3, 3, 3, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 1],
+        [1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1],
+        [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
 
     function createWorld() {
@@ -29,13 +39,16 @@ window.onload = function () {
                     elementClass = 'box';
                 }
                 if (map[y][x] === 2) {
-                    elementClass = 'coin';
+                    elementClass = 'apple';
                 }
                 if (map[y][x] === 3) {
                     elementClass = 'ground';
                 }
+                if (map[y][x] === 4) {
+                    elementClass = 'ghost';
+                }
                 var div = document.createElement('div');
-                div.id = 'cell' + x + y;
+                div.id = 'cell' + 'x' + x + 'y' + y;
                 div.classList.add(elementClass);
                 document.getElementById('world').appendChild(div);
             }
@@ -44,8 +57,8 @@ window.onload = function () {
     }
 
     var pacman = {
-        X: 11,
-        Y: 5,
+        X: 10,
+        Y: 18,
         cell: 30,
         fps: 3,
         stepX: null,
@@ -54,6 +67,7 @@ window.onload = function () {
         tryStepY: null,
         run: true,
         PACMAN: null,
+        life: 3,
         move: function (x, y) {
             if (pacman.run) {
                 var offset, steps, timer;
@@ -81,9 +95,12 @@ window.onload = function () {
                                     pacman.move(pacman.tryStepX, pacman.tryStepY);
                                     pacman.tryStepY = null;
                                     pacman.tryStepX = null;
-                                }
-                                if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
+                                }else if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
                                     pacman.move(pacman.stepX, pacman.stepY);
+                                }else if(map[pacman.Y + 1][pacman.X] !== 1){
+                                    pacman.move(0, 1);
+                                }else if(map[pacman.Y - 1][pacman.X] !== 1){
+                                    pacman.move(0, -1);
                                 }
                             }
                         }, 30);
@@ -110,9 +127,12 @@ window.onload = function () {
                                     pacman.move(pacman.tryStepX, pacman.tryStepY);
                                     pacman.tryStepY = null;
                                     pacman.tryStepX = null;
-                                }
-                                if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
+                                }else if (map[pacman.Y + pacman.stepY][pacman.X + pacman.stepX] !== 1) {
                                     pacman.move(pacman.stepX, pacman.stepY);
+                                }else if(map[pacman.Y][pacman.X + 1] !== 1){
+                                    pacman.move(1, 0);
+                                }else if(map[pacman.Y][pacman.X - 1] !== 1){
+                                    pacman.move(-1, 0);
                                 }
                             }
                         }, 30);
@@ -125,18 +145,18 @@ window.onload = function () {
             }
         },
         eat: function () {
-            if (document.getElementById('cell' + pacman.X + pacman.Y).classList.contains('coin')) {
+            if ( document.getElementById('cell' + 'x' + pacman.X + 'y' + pacman.Y).classList.contains('apple')) {
                 score += 10;
-                document.getElementById('cell' + pacman.X + pacman.Y).classList.remove('coin');
-                document.getElementById('cell' + pacman.X + pacman.Y).classList.add('ground');
+                document.getElementById('cell' + 'x' + pacman.X + 'y' + pacman.Y).classList.remove('apple');
+                document.getElementById('cell' + 'x' + pacman.X + 'y' + pacman.Y).classList.add('ground');
                 document.querySelector('h4 span').innerHTML = score;
             }
-        }
+        },
     };
 
 
     document.onkeydown = function (e) {
-        if (e.keyCode === 37) {
+        if (e.keyCode === 37 || e.keyCode === 65|| e.keyCode === 97) {
             if (pacman.run)
                 pacman.move(-1, 0);
             else {
@@ -144,7 +164,7 @@ window.onload = function () {
                 pacman.tryStepY = 0;
             }
         }
-        if (e.keyCode === 38) {
+        if (e.keyCode === 38 || e.keyCode === 119 || e.keyCode === 87) {
             if (pacman.run)
                 pacman.move(0, -1);
             else {
@@ -152,7 +172,7 @@ window.onload = function () {
                 pacman.tryStepY = -1;
             }
         }
-        if (e.keyCode === 39) {
+        if (e.keyCode === 39 || e.keyCode === 68 || e.keyCode === 100) {
             if (pacman.run)
                 pacman.move(1, 0);
             else {
@@ -160,7 +180,7 @@ window.onload = function () {
                 pacman.tryStepY = 0;
             }
         }
-        if (e.keyCode === 40) {
+        if (e.keyCode === 40 || e.keyCode === 83 || e.keyCode === 115) {
             if (pacman.run)
                 pacman.move(0, 1);
             else {

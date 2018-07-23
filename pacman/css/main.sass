@@ -1,23 +1,23 @@
 $height : 30px
+$pink : #ff0a5c
 
 body, html
 	padding: 0
 	margin: 0
-	background-color: #222
+	background-color: #000
 	.pacman
 		display: block
 		width: $height
 		height: $height
 		border-radius: 50%
-		background-color: #ffe600
-		top: $height * 5
-		left: $height * 11
+		background-color: #f8f921
+		top: $height * 18
+		left: $height * 10
 		position: absolute
 		overflow: hidden
 		box-sizing: border-box
-		border: 2px solid #222
+		border: 2px solid #000
 		z-index: 2
-		//transition: top .1s, left .1s, bottom .1s, right .1s
 		&:before
 			content: ""
 			display: block
@@ -39,7 +39,7 @@ body, html
 			width: 0
 			height: 0
 			border: $height solid transparent
-			border-right: $height solid #222
+			border-right: $height solid #000
 			z-index: 4
 			animation: om-nom-nom .3s linear alternate infinite
 
@@ -51,7 +51,7 @@ body, html
 			right: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-left: $height solid #222
+			border-left: $height solid #000
 
 	.pacman_top
 		&:before
@@ -61,7 +61,7 @@ body, html
 			bottom: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-top: $height solid #222
+			border-top: $height solid #000
 			animation: om-nom-nom_top .3s linear alternate infinite
 
 	.pacman_bottom
@@ -71,7 +71,7 @@ body, html
 			top: $height * 0.4
 		&:after
 			border: $height solid transparent
-			border-bottom: $height solid #222
+			border-bottom: $height solid #000
 			animation: om-nom-nom_top .3s linear alternate infinite
 
 @keyframes om-nom-nom
@@ -103,24 +103,25 @@ body, html
 	height: $height
 	width: $height
 	box-sizing: border-box
-	background-color: #ff5b3d
-	border: 5px solid #1e41ff
+	background-color: #413e8d
+	border: 2px solid #010d49
 
 .ground
 	display: block
 	float: left
 	height: $height
 	width: $height
-	background-color: #222
+	background-color: #000
 
-.coin
+.apple
 	display: block
 	float: left
 	height: $height
 	width: $height
-	background-color: #222
+	background-color: rgba(0,0,0,0)
 	position: relative
-	&:before
+	animation: appleAnimation 2s infinite
+	/*&:before
 		content: ""
 		position: absolute
 		display: block
@@ -133,16 +134,84 @@ body, html
 		top: $height * 0.15
 		right: $height * 0.3
 		animation: coinAnimation 2s linear infinite
+	&:before
+		content: ""
+		position: absolute
+		display: block
+		box-sizing: border-box
+		background-color: #4cff2c
+		height: $height * 0.1
+		width:  $height * 0.1
+		border-radius: 50%
+		top: $height * 0.6
+		left: $height * 0.4
+		box-shadow: $height * 0.1 0 0 0 #4cff2c, $height * 0.05 $height* -0.11 0 $height*0.1 #4cff2c
+	&:after
+		content: ""
+		position: absolute
+		display: block
+		box-sizing: border-box
+		background-color: #077300
+		height: $height * 0.25
+		width:  $height * 0.1
+		border-radius: 50%
+		top: $height * 0.25
+		left: $height * 0.37
+		transform: rotate(-60deg)
 
-@keyframes coinAnimation
+
+@keyframes appleAnimation
 	0%,
 	100%
-		top: $height * 0.2
+		top: $height * 0.1
 	50%
-		top: $height * 0.4
+		top: $height * -0.1
+
+
+.ghost
+	display: block
+	position: relative
+	width: $height
+	height: $height
+	background-color: #000
+	float: left
+	&:before
+		content: ''
+		position: absolute
+		display: block
+		box-sizing: border-box
+		background-color: $pink
+		height: $height * 0.2
+		width:  $height * 0.2
+		border-radius: 50%
+		top: $height * 0.65
+		left: $height * 0.5
+		transform: translateX(-50%)
+		box-shadow: $height * -0.1 $height * -0.35 0 $height * -0.07 #000, $height * 0.1 $height * -0.35 0 $height * -0.07 #000, $height * -0.1 $height * -0.35 0 0 #fff, $height * 0.1 $height * -0.35 0 0 #fff, $height * 0.2 0 0 0 $pink, $height * -0.2 0 0 0 $pink, 0 $height* -0.3 0 $height*0.25 $pink
+	&:after
+		content: ''
+		position: absolute
+		display: block
+		background-color: rgba(0,0,0,0)
+		height: $height * 0.15
+		width:  $height * 0.15
+		border-radius: 50%
+		border-bottom: $height / 20 solid #000
+		top: $height * 0.45
+		left: $height * 0.5
+		transform: translateX(-50%)
+
 
 #world
-	margin: 0 auto
-	height: $height * 11
-	width: $height * 23
-	position: relative
+	height: $height * 20
+	width: $height * 21
+	position: absolute
+	top: 0
+	left: 50%
+	transform: translateX(-50%)
+	overflow: hidden
+
+h4
+	color: #fff
+	padding: 10px
+	display: inline-block
