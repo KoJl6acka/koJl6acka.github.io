@@ -170,10 +170,10 @@ body, html
 
 .ghost
 	display: block
-	position: relative
+	position: absolute
 	width: $height
 	height: $height
-	background-color: #000
+	background-color: rgba(0,0,0,0)
 	float: left
 	&:before
 		content: ''
@@ -185,22 +185,32 @@ body, html
 		width:  $height * 0.2
 		border-radius: 50%
 		top: $height * 0.65
-		left: $height * 0.5
-		transform: translateX(-50%)
+		left: $height * 0.4
+		//transform: translateX(-50%)
 		box-shadow: $height * -0.1 $height * -0.35 0 $height * -0.07 #000, $height * 0.1 $height * -0.35 0 $height * -0.07 #000, $height * -0.1 $height * -0.35 0 0 #fff, $height * 0.1 $height * -0.35 0 0 #fff, $height * 0.2 0 0 0 $pink, $height * -0.2 0 0 0 $pink, 0 $height* -0.3 0 $height*0.25 $pink
+		animation: ghost 3s infinite
+		z-index: 9
+
 	&:after
 		content: ''
 		position: absolute
 		display: block
 		background-color: rgba(0,0,0,0)
 		height: $height * 0.15
-		width:  $height * 0.15
+		width:  $height * 0.16
 		border-radius: 50%
 		border-bottom: $height / 20 solid #000
 		top: $height * 0.45
-		left: $height * 0.5
-		transform: translateX(-50%)
+		left: $height * 0.42
+		//transform: translateX(-50%)
+		z-index: 10
 
+
+@keyframes ghost
+	0%,100%
+		transform: rotate(5deg)
+	50%
+		transform: rotate(-5deg)
 
 #world
 	height: $height * 20
@@ -215,3 +225,18 @@ h4
 	color: #fff
 	padding: 10px
 	display: inline-block
+
+
+#ghost_1
+		top: $height * 13
+		left: $height * 9
+#ghost_2
+		top: $height * 12
+		left: $height * 9
+#ghost_3
+		top: $height * 13
+		left: $height * 11
+#ghost_4
+		top: $height * 12
+		left: $height * 11
+

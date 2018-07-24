@@ -150,10 +150,10 @@ body, html {
     top: -3px; } }
 .ghost {
   display: block;
-  position: relative;
+  position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0);
   float: left; }
   .ghost:before {
     content: "";
@@ -165,22 +165,28 @@ body, html {
     width: 6px;
     border-radius: 50%;
     top: 19.5px;
-    left: 15px;
-    transform: translateX(-50%);
-    box-shadow: -3px -10.5px 0 -2.1px #000, 3px -10.5px 0 -2.1px #000, -3px -10.5px 0 0 #fff, 3px -10.5px 0 0 #fff, 6px 0 0 0 #ff0a5c, -6px 0 0 0 #ff0a5c, 0 -9px 0 7.5px #ff0a5c; }
+    left: 12px;
+    box-shadow: -3px -10.5px 0 -2.1px #000, 3px -10.5px 0 -2.1px #000, -3px -10.5px 0 0 #fff, 3px -10.5px 0 0 #fff, 6px 0 0 0 #ff0a5c, -6px 0 0 0 #ff0a5c, 0 -9px 0 7.5px #ff0a5c;
+    animation: ghost 3s infinite;
+    z-index: 9; }
   .ghost:after {
     content: "";
     position: absolute;
     display: block;
     background-color: rgba(0, 0, 0, 0);
     height: 4.5px;
-    width: 4.5px;
+    width: 4.8px;
     border-radius: 50%;
     border-bottom: 1.5px solid #000;
     top: 13.5px;
-    left: 15px;
-    transform: translateX(-50%); }
+    left: 12.6px;
+    z-index: 10; }
 
+@keyframes ghost {
+  0%,100% {
+    transform: rotate(5deg); }
+  50% {
+    transform: rotate(-5deg); } }
 #world {
   height: 600px;
   width: 630px;
@@ -194,5 +200,21 @@ h4 {
   color: #fff;
   padding: 10px;
   display: inline-block; }
+
+#ghost_1 {
+  top: 390px;
+  left: 270px; }
+
+#ghost_2 {
+  top: 360px;
+  left: 270px; }
+
+#ghost_3 {
+  top: 390px;
+  left: 330px; }
+
+#ghost_4 {
+  top: 360px;
+  left: 330px; }
 
 /*# sourceMappingURL=main.css.map */
