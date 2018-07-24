@@ -97,7 +97,7 @@ body, html
 		left: 50%
 
 
-.box
+.wall
 	display: block
 	float: left
 	height: $height
@@ -121,19 +121,6 @@ body, html
 	background-color: rgba(0,0,0,0)
 	position: relative
 	animation: appleAnimation 2s infinite
-	/*&:before
-		content: ""
-		position: absolute
-		display: block
-		box-sizing: border-box
-		background-color: #f2ff68
-		height: $height * 0.4
-		width:  $height * 0.2
-		border-radius: 50%
-		border: $height / 20 solid #ff9600
-		top: $height * 0.15
-		right: $height * 0.3
-		animation: coinAnimation 2s linear infinite
 	&:before
 		content: ""
 		position: absolute
@@ -186,7 +173,6 @@ body, html
 		border-radius: 50%
 		top: $height * 0.65
 		left: $height * 0.4
-		//transform: translateX(-50%)
 		box-shadow: $height * -0.1 $height * -0.35 0 $height * -0.07 #000, $height * 0.1 $height * -0.35 0 $height * -0.07 #000, $height * -0.1 $height * -0.35 0 0 #fff, $height * 0.1 $height * -0.35 0 0 #fff, $height * 0.2 0 0 0 $pink, $height * -0.2 0 0 0 $pink, 0 $height* -0.3 0 $height*0.25 $pink
 		animation: ghost 3s infinite
 		z-index: 9
@@ -202,7 +188,6 @@ body, html
 		border-bottom: $height / 20 solid #000
 		top: $height * 0.45
 		left: $height * 0.42
-		//transform: translateX(-50%)
 		z-index: 10
 
 
